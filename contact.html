@@ -131,6 +131,19 @@ footer{background:var(--navy-deep);border-top:1px solid rgba(201,150,42,0.12);pa
 
       <!-- STRATEGY CALL FORM -->
        <form name="contact" method="POST" data-netlify="true" class="contact-form">
+         <input type="hidden" name="form-name" value="contact" />
+
+  <div class="form-row">
+    
+    <input type="text" name="name" placeholder="Your Name" required>
+    
+    <input type="email" name="email" placeholder="Your Email" required>
+    
+    <textarea name="message" placeholder="Tell us about your project" required></textarea>
+    
+    <button type="submit">Book Strategy Call</button>
+
+  </div>
       <div class="form-panel active" id="panel-call">
         <p style="font-size:0.85rem;font-weight:300;line-height:1.8;color:#666;margin-bottom:2rem;">Our strategy sessions are 45 minutes. We'll review your current marketing setup, identify your biggest growth gaps, and outline what Kairos would do differently. No hard sell — we only work with brands we're genuinely excited about.</p>
         <div class="form-row">
