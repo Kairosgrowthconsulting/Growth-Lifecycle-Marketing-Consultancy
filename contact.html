@@ -233,8 +233,10 @@ footer{background:var(--navy-deep);border-top:1px solid rgba(201,150,42,0.12);pa
 <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">About Kairos</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="insights.html">Insights</a></li><li><a href="contact.html">Contact</a></li></ul></div>
 <div class="footer-col"><h5>Get Started</h5><ul><li><a href="contact.html">Book a Strategy Call</a></li><li><a href="contact.html#audit">Free Growth Audit</a></li><li><a href="mailto:hello@kairosconsulting.co">hello@kairosconsulting.co</a></li></ul></div>
 </div><div class="footer-bottom"><p>© 2025 Kairos Growth Consulting. All rights reserved.</p><div class="footer-badge">Global Standard ◆</div></div></footer>
-<script>window.addEventListener('scroll',()=>{document.getElementById('main-nav').style.boxShadow=window.scrollY>40?'0 4px 30px rgba(0,0,0,0.07)':'none';});document.querySelectorAll('.reveal').forEach(el=>{new IntersectionObserver(([e])=>{if(e.isIntersecting)e.target.classList.add('visible');},{threshold:0.1}).observe(el);});</script>
 <script>
+window.addEventListener('scroll',()=>{document.getElementById('main-nav').style.boxShadow=window.scrollY>40?'0 4px 30px rgba(0,0,0,0.07)':'none';});
+document.querySelectorAll('.reveal').forEach(el=>{new IntersectionObserver(([e])=>{if(e.isIntersecting)e.target.classList.add('visible');},{threshold:0.1}).observe(el);});
+
 function switchTab(panel, el) {
   document.querySelectorAll('.form-tab').forEach(t=>t.classList.remove('active'));
   document.querySelectorAll('.form-panel').forEach(p=>p.classList.remove('active'));
@@ -242,21 +244,47 @@ function switchTab(panel, el) {
   document.getElementById('panel-'+panel).classList.add('active');
   if(panel==='audit') window.location.hash='audit';
 }
+
 function submitForm(btn){
-  const panel=btn.closest('.form-panel');
-  const id=panel.id.replace('panel-','');
-  btn.textContent='Sending...';
-  setTimeout(()=>{
-    btn.style.display='none';
-    document.getElementById('success-'+id).style.display='block';
-  },1000);
+  const panel = btn.closest('.form-panel');
+  const form = btn.closest('form');
+  const id = panel.id.replace('panel-','');
+  
+  // Update the hidden form-type field to track which panel was submitted
+  document.getElementById('formType').value = id;
+  
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  
+  // Get form data
+  const formData = new FormData(form);
+  
+  // Submit to Netlify
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(formData).toString()
+  })
+  .then(response => {
+    if (response.ok) {
+      btn.style.display = 'none';
+      document.getElementById('success-'+id).style.display = 'block';
+    } else {
+      throw new Error('Network response was not ok');
+    }
+  })
+  .catch((error) => {
+    alert('Error submitting form. Please try again.');
+    btn.textContent = btn.textContent.replace('Sending...', 'Submit');
+    btn.disabled = false;
+    console.error('Form submission error:', error);
+  });
 }
+
 window.addEventListener('load',()=>{
   if(window.location.hash==='#audit'){
     document.getElementById('audit-tab').click();
   }
 });
-window.addEventListener('scroll',()=>{document.getElementById('main-nav').style.boxShadow=window.scrollY>40?'0 4px 30px rgba(0,0,0,0.07)':'none';});
-document.querySelectorAll('.reveal').forEach(el=>{new IntersectionObserver(([e])=>{if(e.isIntersecting)e.target.classList.add('visible');},{threshold:0.1}).observe(el);});
 </script>
 </body></html>
