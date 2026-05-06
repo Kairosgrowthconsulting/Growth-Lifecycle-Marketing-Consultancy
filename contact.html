@@ -129,7 +129,7 @@ footer{background:var(--navy-deep);border-top:1px solid rgba(201,150,42,0.12);pa
         <div class="form-tab" onclick="switchTab('brief',this)">Send a Brief</div>
       </div>
 
-     <!-- STRATEGY CALL FORM -->
+ <!-- STRATEGY CALL FORM -->
 <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
   <!-- Hidden fields for Netlify -->
   <input type="hidden" name="form-name" value="contact" />
@@ -155,7 +155,7 @@ footer{background:var(--navy-deep);border-top:1px solid rgba(201,150,42,0.12);pa
       </select>
     </div>
     <div class="form-group"><label>What's your biggest growth challenge right now?</label><textarea name="challenge" placeholder="Tell us what's not working — or what you want to unlock. Be specific." required></textarea></div>
-    <button type="submit" class="submit-btn">Request a Strategy Call →</button>
+    <button class="submit-btn" type="button" onclick="submitForm(this)">Request a Strategy Call →</button>
     <div class="success-msg" id="success-call"><p>✦ Thank you. We'll reach out within 24 hours to confirm your session and share a short pre-call questionnaire so we can make the most of our time together.</p></div>
   </div>
 
@@ -165,13 +165,13 @@ footer{background:var(--navy-deep);border-top:1px solid rgba(201,150,42,0.12);pa
       <p><strong>What's included in a Free Growth Audit:</strong> We review your current email/CRM setup, paid acquisition channels, funnel conversion rates, and retention metrics — then deliver a written audit report with your top 3 growth opportunities and recommended next steps. Typically valued at $800. Free for qualifying brands.</p>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Your Name</label><input type="text" name="fullName" placeholder="Full name"></div>
-      <div class="form-group"><label>Your Role</label><input type="text" name="role" placeholder="Founder / CMO / Head of Growth"></div>
+      <div class="form-group"><label>Your Name</label><input type="text" name="fullName" placeholder="Full name" required></div>
+      <div class="form-group"><label>Your Role</label><input type="text" name="role" placeholder="Founder / CMO / Head of Growth" required></div>
     </div>
-    <div class="form-group"><label>Brand / Website</label><input type="text" name="website" placeholder="yourbrand.com"></div>
-    <div class="form-group"><label>Business Email</label><input type="email" name="emailAudit" placeholder="you@yourbrand.com"></div>
+    <div class="form-group"><label>Brand / Website</label><input type="text" name="website" placeholder="yourbrand.com" required></div>
+    <div class="form-group"><label>Business Email</label><input type="email" name="emailAudit" placeholder="you@yourbrand.com" required></div>
     <div class="form-group"><label>Current Monthly Revenue</label>
-      <select name="revenueAudit">
+      <select name="revenueAudit" required>
         <option value="">Select revenue range</option>
         <option>Under $10k/month</option>
         <option>$10k – $50k/month</option>
@@ -180,7 +180,7 @@ footer{background:var(--navy-deep);border-top:1px solid rgba(201,150,42,0.12);pa
       </select>
     </div>
     <div class="form-group"><label>Which area do you most want audited?</label>
-      <select name="auditArea">
+      <select name="auditArea" required>
         <option value="">Select audit area</option>
         <option>Email & Lifecycle Marketing</option>
         <option>Paid Acquisition (Meta/Google)</option>
@@ -189,18 +189,18 @@ footer{background:var(--navy-deep);border-top:1px solid rgba(201,150,42,0.12);pa
         <option>Not sure — audit everything</option>
       </select>
     </div>
-    <button type="submit" class="submit-btn">Request Your Free Audit →</button>
+    <button class="submit-btn" type="button" onclick="submitForm(this)">Request Your Free Audit →</button>
     <div class="success-msg" id="success-audit"><p>✦ Audit request received. We'll review your information and reach out within 2 business days with a confirmation and any questions needed to get started.</p></div>
   </div>
 
   <!-- BRIEF FORM -->
   <div class="form-panel" id="panel-brief">
     <p style="font-size:0.85rem;font-weight:300;line-height:1.8;color:#666;margin-bottom:2rem;">Have a specific project in mind? Share the details here and we'll come back to you with initial thinking and a proposed scope of work.</p>
-    <div class="form-group"><label>Your Name</label><input type="text" name="nameBrief" placeholder="Full name"></div>
-    <div class="form-group"><label>Business Email</label><input type="email" name="emailBrief" placeholder="you@yourbrand.com"></div>
-    <div class="form-group"><label>Brand / Company</label><input type="text" name="companyBrief" placeholder="Your brand"></div>
+    <div class="form-group"><label>Your Name</label><input type="text" name="nameBrief" placeholder="Full name" required></div>
+    <div class="form-group"><label>Business Email</label><input type="email" name="emailBrief" placeholder="you@yourbrand.com" required></div>
+    <div class="form-group"><label>Brand / Company</label><input type="text" name="companyBrief" placeholder="Your brand" required></div>
     <div class="form-group"><label>Services You're Interested In</label>
-      <select name="services">
+      <select name="services" required>
         <option value="">Select service</option>
         <option>Lifecycle Marketing & CRM</option>
         <option>Growth Strategy & Paid Acquisition</option>
@@ -212,7 +212,7 @@ footer{background:var(--navy-deep);border-top:1px solid rgba(201,150,42,0.12);pa
       </select>
     </div>
     <div class="form-group"><label>Budget Range (Monthly)</label>
-      <select name="budget">
+      <select name="budget" required>
         <option value="">Select budget range</option>
         <option>$500 – $1,500/mo</option>
         <option>$1,500 – $3,000/mo</option>
@@ -221,8 +221,8 @@ footer{background:var(--navy-deep);border-top:1px solid rgba(201,150,42,0.12);pa
         <option>Project-based (one-off)</option>
       </select>
     </div>
-    <div class="form-group"><label>Tell us about your project</label><textarea name="projectDetails" placeholder="What are you trying to achieve? What's the context? What does success look like?"></textarea></div>
-    <button type="submit" class="submit-btn">Submit Brief →</button>
+    <div class="form-group"><label>Tell us about your project</label><textarea name="projectDetails" placeholder="What are you trying to achieve? What's the context? What does success look like?" required></textarea></div>
+    <button class="submit-btn" type="button" onclick="submitForm(this)">Submit Brief →</button>
     <div class="success-msg" id="success-brief"><p>✦ Brief received. We'll review it and come back to you within 2 business days with initial thinking on how we'd approach this.</p></div>
   </div>
 </form>
