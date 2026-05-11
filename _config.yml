@@ -1,0 +1,5 @@
+title: Kairos Growth Consulting
+description: Growth Strategy & Lifecycle Marketing Insights
+theme: minima
+plugins:
+  - jekyll-feed
