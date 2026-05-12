@@ -1,0 +1,170 @@
+---
+layout: default
+---
+
+<article class="blog-post">
+    <header class="post-header">
+        <div class="post-meta">
+            <span class="post-category">{{ page.category }}</span>
+            <span class="post-date">{{ page.date | date: "%B %d, %Y" }}</span>
+        </div>
+        <h1 class="post-title">{{ page.title }}</h1>
+        {% if page.subtitle %}
+        <p class="post-subtitle">{{ page.subtitle }}</p>
+        {% endif %}
+        <div class="post-byline">
+            <span class="post-author">{{ page.author | default: "Kairos Editorial" }}</span>
+            <span class="post-readtime">{{ page.readtime | default: "5 min read" }}</span>
+        </div>
+    </header>
+
+    <div class="post-content">
+        {{ content }}
+    </div>
+
+    <aside class="post-newsletter-cta">
+        <h3>Get insights like this every Tuesday</h3>
+        <p>One email per week. Specific, actionable thinking on lifecycle marketing and brand growth.</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="your@email.com" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </aside>
+
+    <div class="back-to-insights">
+        <a href="{{ site.baseurl }}/insights.html">← Back to all insights</a>
+    </div>
+</article>
+
+<style>
+.blog-post {
+    max-width: 760px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.post-header {
+    margin-bottom: 60px;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 40px;
+}
+
+.post-meta {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #666;
+}
+
+.post-category {
+    background: #f0f0f0;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.post-title {
+    font-size: 42px;
+    line-height: 1.2;
+    margin: 20px 0;
+    font-weight: 700;
+}
+
+.post-subtitle {
+    font-size: 20px;
+    color: #666;
+    line-height: 1.5;
+}
+
+.post-byline {
+    display: flex;
+    gap: 15px;
+    font-size: 14px;
+    color: #666;
+}
+
+.post-content {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #333;
+}
+
+.post-content h2 {
+    font-size: 32px;
+    margin: 50px 0 20px;
+    font-weight: 600;
+}
+
+.post-content h3 {
+    font-size: 24px;
+    margin: 40px 0 15px;
+    font-weight: 600;
+}
+
+.post-content p {
+    margin: 20px 0;
+}
+
+.post-content ul, .post-content ol {
+    margin: 20px 0;
+    padding-left: 30px;
+}
+
+.post-content li {
+    margin: 10px 0;
+}
+
+.post-content blockquote {
+    border-left: 4px solid #000;
+    padding-left: 20px;
+    margin: 30px 0;
+    font-style: italic;
+    color: #555;
+}
+
+.post-newsletter-cta {
+    background: #f9f9f9;
+    padding: 40px;
+    border-radius: 8px;
+    margin: 60px 0;
+    text-align: center;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+    max-width: 400px;
+    margin: 20px auto 0;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.newsletter-form button {
+    padding: 12px 24px;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.back-to-insights {
+    margin: 60px 0;
+}
+
+.back-to-insights a {
+    color: #666;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.back-to-insights a:hover {
+    color: #000;
+}
+</style>
