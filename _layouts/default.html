@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    
+    <link rel="stylesheet" href="{{ site.baseurl }}/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{{ site.baseurl }}/index.html">
+                <img src="https://raw.githubusercontent.com/Kairosgrowthconsulting/Growth-Lifecycle-Marketing-Consultancy/main/logo.png" alt="Kairos Growth Consulting">
+            </a>
+            <ul>
+                <li><a href="{{ site.baseurl }}/index.html">Home</a></li>
+                <li><a href="{{ site.baseurl }}/services.html">Services</a></li>
+                <li><a href="{{ site.baseurl }}/case-studies.html">Case Studies</a></li>
+                <li><a href="{{ site.baseurl }}/about.html">About</a></li>
+                <li><a href="{{ site.baseurl }}/insights.html">Insights</a></li>
+                <li><a href="{{ site.baseurl }}/contact.html">Book a Call</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {{ content }}
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="https://raw.githubusercontent.com/Kairosgrowthconsulting/Growth-Lifecycle-Marketing-Consultancy/main/logo.png" alt="Kairos Growth Consulting">
+            </div>
+            
+            <div class="footer-section">
+                <h5>SERVICES</h5>
+                <ul>
+                    <li><a href="{{ site.baseurl }}/services.html#lifecycle">Lifecycle & CRM</a></li>
+                    <li><a href="{{ site.baseurl }}/services.html#growth">Growth Strategy</a></li>
+                    <li><a href="{{ site.baseurl }}/services.html#brand">Brand Positioning</a></li>
+                    <li><a href="{{ site.baseurl }}/services.html#cro">CRO</a></li>
+                    <li><a href="{{ site.baseurl }}/services.html#seo">SEO & Content</a></li>
+                    <li><a href="{{ site.baseurl }}/services.html#data">Data & Analytics</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h5>COMPANY</h5>
+                <ul>
+                    <li><a href="{{ site.baseurl }}/about.html">About Kairos</a></li>
+                    <li><a href="{{ site.baseurl }}/case-studies.html">Case Studies</a></li>
+                    <li><a href="{{ site.baseurl }}/insights.html">Insights</a></li>
+                    <li><a href="{{ site.baseurl }}/contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h5>GET STARTED</h5>
+                <ul>
+                    <li><a href="{{ site.baseurl }}/contact.html">Book a Strategy Call</a></li>
+                    <li><a href="{{ site.baseurl }}/contact.html#audit">Free Growth Audit</a></li>
+                    <li><a href="mailto:hello@kairosconsulting.co">hello@kairosconsulting.co</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; {{ 'now' | date: "%Y" }} Kairos Growth Consulting. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{{ site.baseurl }}/scripts.js"></script>
+</body>
+</html>
