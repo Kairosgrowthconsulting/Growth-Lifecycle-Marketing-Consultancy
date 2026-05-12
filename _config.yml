@@ -1,5 +1,32 @@
+# Jekyll Configuration for Kairos Growth Consulting
+
+# Site settings
 title: Kairos Growth Consulting
-description: Growth Strategy & Lifecycle Marketing Insights
-theme: minima
-plugins:
-  - jekyll-feed
+description: Growth thinking from practitioners
+url: "https://kairosgrowthconsulting.github.io"
+baseurl: "/Growth-Lifecycle-Marketing-Consultancy"
+
+# Build settings
+markdown: kramdown
+permalink: /insights/:year/:month/:title/
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /insights/:year/:month/:title/
+
+# Exclude from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Kairos Editorial"
