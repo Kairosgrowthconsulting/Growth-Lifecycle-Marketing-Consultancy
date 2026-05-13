@@ -605,7 +605,25 @@ footer{
 
   </div>
 
-  <div class="insights-grid">
+  {% for post in site.posts %}
+
+<a href="{{ post.url | relative_url }}" class="insight-card">
+
+  <span class="insight-cat">
+    {{ post.category }}
+  </span>
+
+  <h3>{{ post.title }}</h3>
+
+  <p>{{ post.excerpt }}</p>
+
+  <span class="read-time">
+    {{ post.readtime }}
+  </span>
+
+</a>
+
+{% endfor %}
 
     <a href="#" class="insight-card">
       <span class="insight-cat">Growth Strategy</span>
