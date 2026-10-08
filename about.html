@@ -22,6 +22,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .btn-outline:hover{background:var(--gold);color:var(--white);}
 .btn-ghost-white{font-size:0.72rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);text-decoration:none;padding-bottom:2px;border-bottom:1px solid rgba(255,255,255,0.25);transition:all 0.25s;}
 .btn-ghost-white:hover{color:var(--gold);border-color:var(--gold);}
+.btn-gold{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.72rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy);background:var(--gold);padding:0.9rem 2rem;text-decoration:none;border-radius:2px;transition:background 0.25s,transform 0.2s;border:none;cursor:pointer;}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);}
+.btn-navy{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.72rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--white);background:var(--navy);padding:0.9rem 2rem;text-decoration:none;border-radius:2px;transition:background 0.25s,transform 0.2s;border:none;cursor:pointer;}
+.btn-navy:hover{background:#243660;transform:translateY(-2px);}
+.btn-outline{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.72rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,150,42,0.5);padding:0.85rem 1.75rem;text-decoration:none;border-radius:2px;transition:all 0.25s;}
+.btn-outline:hover{background:var(--gold);color:var(--white);}
+.btn-ghost-white{font-size:0.72rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);text-decoration:none;padding-bottom:2px;border-bottom:1px solid rgba(255,255,255,0.25);transition:all 0.25s;}
+.btn-ghost-white:hover{color:var(--gold);border-color:var(--gold);}
 .section-tag{display:inline-flex;align-items:center;gap:0.75rem;font-size:0.62rem;font-weight:500;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
 .section-tag::before{content:'';width:28px;height:1px;background:var(--gold);}
 h2.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.8vw,3rem);font-weight:300;line-height:1.15;color:var(--navy);margin-bottom:1.25rem;}
@@ -67,82 +75,7 @@ footer{background:var(--navy-deep);border-top:1px solid rgba(201,150,42,0.12);pa
 @media(max-width:900px){nav{padding:1rem 1.5rem;}.nav-links{display:none;}.page-hero{padding:8rem 1.5rem 4rem;}footer{padding:4rem 1.5rem 2rem;}.footer-grid{grid-template-columns:1fr 1fr;}.cta-band{padding:5rem 1.5rem;}.cta-actions{flex-direction:column;}}
 </style>
 <style>
-/* ── FOUNDER FEATURE ── */
-.founder-feature {
-  display:grid; grid-template-columns:1fr 1fr; gap:0;
-  min-height:620px;
-}
-.founder-photo-col {
-  position:relative; overflow:hidden; background:var(--navy);
-  min-height:580px;
-}
-.founder-photo-col img {
-  width:100%; height:100%; object-fit:cover; object-position:center top;
-  filter:grayscale(15%);
-  transition:transform 0.6s ease;
-}
-.founder-photo-col:hover img { transform:scale(1.03); }
-.founder-photo-overlay {
-  position:absolute; inset:0;
-  background:linear-gradient(to right, transparent 60%, rgba(13,23,40,0.4));
-}
-.founder-photo-badge {
-  position:absolute; bottom:2.5rem; left:2.5rem;
-  background:var(--gold); padding:0.65rem 1.25rem; border-radius:2px;
-}
-.founder-photo-badge span {
-  font-size:0.62rem; font-weight:500; letter-spacing:0.18em;
-  text-transform:uppercase; color:var(--navy);
-}
-
-.founder-content-col {
-  background:var(--white); padding:5rem 4.5rem;
-  display:flex; flex-direction:column; justify-content:center;
-}
-
-.founder-headline {
-  font-family:'Cormorant Garamond', serif;
-  font-size:clamp(1.65rem, 2.8vw, 2.25rem);
-  font-weight:600; line-height:1.2; color:var(--navy);
-  margin-bottom:1.75rem;
-}
-.founder-headline em { font-style:italic; color:var(--gold); }
-
-.founder-body p {
-  font-size:0.9rem; font-weight:300; line-height:1.95; color:#555;
-  margin-bottom:1.1rem;
-}
-
-.founder-proof {
-  display:grid; grid-template-columns:1fr 1fr; gap:1rem;
-  margin:2.25rem 0 2.5rem;
-}
-.proof-item {
-  border-left:2px solid var(--gold); padding-left:1rem;
-}
-.proof-item strong {
-  display:block; font-family:'Cormorant Garamond', serif;
-  font-size:1.6rem; font-weight:600; color:var(--navy); line-height:1;
-}
-.proof-item span {
-  font-size:0.65rem; font-weight:400; letter-spacing:0.1em;
-  text-transform:uppercase; color:var(--text-muted);
-}
-
-.founder-creds {
-  border-top:1px solid var(--border); padding-top:1.75rem;
-  display:flex; flex-wrap:wrap; gap:0.5rem;
-}
-.cred-pill {
-  font-size:0.62rem; font-weight:500; letter-spacing:0.12em;
-  text-transform:uppercase; color:var(--navy);
-  background:var(--cream); border:1px solid var(--border);
-  padding:0.3rem 0.85rem; border-radius:100px;
-  transition:background 0.2s, border-color 0.2s;
-}
-.cred-pill:hover { background:var(--gold-pale); border-color:rgba(201,150,42,0.4); }
-
-/* ── PHILOSOPHY ── */
+/* ── PHILOSOPHY / APPROACH ── */
 .philosophy { background:var(--navy-deep); padding:7rem 4rem; }
 .philosophy-grid {
   display:grid; grid-template-columns:repeat(3,1fr);
@@ -157,14 +90,14 @@ footer{background:var(--navy-deep);border-top:1px solid rgba(201,150,42,0.12);pa
   font-family:'Cormorant Garamond',serif; font-size:3rem;
   font-weight:300; color:rgba(201,150,42,0.2); line-height:1; margin-bottom:1rem;
 }
-.phil-card h4 {
+.phil-card h3, .phil-card h4 {
   font-family:'Cormorant Garamond',serif; font-size:1.2rem;
   font-weight:600; color:var(--white); margin-bottom:0.75rem;
 }
 .phil-card p {
   font-size:0.82rem; font-weight:300; line-height:1.8; color:rgba(255,255,255,0.5);
 }
-
+ 
 /* ── EXPERTISE BAND ── */
 .expertise-band {
   background:var(--cream); padding:6rem 4rem;
@@ -198,24 +131,7 @@ footer{background:var(--navy-deep);border-top:1px solid rgba(201,150,42,0.12);pa
   text-transform:uppercase; color:rgba(255,255,255,0.38);
   font-style:normal;
 }
-.market-coverage {
-  margin-top:2.5rem; padding:2rem; background:var(--white);
-  border:1px solid var(--border); border-radius:2px;
-}
-.market-coverage h4 {
-  font-size:0.65rem; font-weight:500; letter-spacing:0.18em;
-  text-transform:uppercase; color:var(--gold); margin-bottom:1rem;
-}
-.market-flags {
-  display:flex; gap:0.65rem; flex-wrap:wrap;
-}
-.market-flag {
-  font-size:0.72rem; font-weight:400; color:var(--navy);
-  border:1px solid rgba(26,39,68,0.15); padding:0.35rem 0.85rem;
-  border-radius:100px; transition:all 0.2s;
-}
-.market-flag:hover { background:var(--navy); color:var(--white); }
-
+ 
 /* ── DIFFERENCE TABLE ── */
 .difference { background:var(--white); padding:7rem 4rem; }
 .diff-split {
@@ -246,44 +162,59 @@ footer{background:var(--navy-deep);border-top:1px solid rgba(201,150,42,0.12);pa
 }
 .diff-head span:first-child { color:var(--gold); border-right:1px solid rgba(255,255,255,0.08); }
 .diff-head span:last-child { color:rgba(255,255,255,0.4); }
-
-/* ── TRACK RECORD ── */
-.track-record { background:var(--navy); padding:6rem 4rem; }
-.track-grid {
-  display:grid; grid-template-columns:repeat(4,1fr);
-  gap:0; margin-top:3.5rem; border:1px solid rgba(201,150,42,0.15);
+ 
+/* ── FOUNDER-STYLE PILLS (reused for the growth cycle) ── */
+.cycle-pills {
+  border-top:1px solid rgba(255,255,255,0.1); padding-top:1.75rem; margin-top:0.5rem;
+  display:flex; flex-wrap:wrap; gap:0.5rem;
 }
-.track-item {
-  padding:2.5rem 2rem; text-align:center;
-  border-right:1px solid rgba(201,150,42,0.12);
-  transition:background 0.3s;
+.cred-pill {
+  font-size:0.62rem; font-weight:500; letter-spacing:0.12em;
+  text-transform:uppercase; color:var(--navy);
+  background:var(--cream); border:1px solid var(--border);
+  padding:0.3rem 0.85rem; border-radius:100px;
+  transition:background 0.2s, border-color 0.2s;
 }
-.track-item:last-child { border-right:none; }
-.track-item:hover { background:rgba(201,150,42,0.05); }
-.track-item strong {
-  display:block; font-family:'Cormorant Garamond',serif;
-  font-size:2.75rem; font-weight:600; color:var(--gold); line-height:1;
-  margin-bottom:0.5rem;
+.cred-pill:hover { background:var(--gold-pale); border-color:rgba(201,150,42,0.4); }
+ 
+/* ── ABOUT PAGE ADDITIONS (same tokens as services page) ── */
+.lead { font-size:0.9rem; font-weight:300; line-height:1.9; color:#555; max-width:680px; margin-bottom:1.25rem; }
+.lead.on-dark { color:rgba(255,255,255,0.55); }
+.lead strong { font-weight:500; color:var(--navy); }
+.lead.on-dark strong { color:var(--white); }
+ 
+.wwd { background:var(--white); padding:7rem 4rem; }
+.wwd-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:3rem 0 2.5rem; }
+.wwd-card {
+  display:block; text-decoration:none; border:1px solid var(--border);
+  padding:1.75rem; border-radius:2px;
+  transition:border-color 0.25s, background 0.25s;
 }
-.track-item span {
-  font-size:0.62rem; font-weight:400; letter-spacing:0.14em;
-  text-transform:uppercase; color:rgba(255,255,255,0.4);
+.wwd-card:hover { border-color:var(--gold); background:var(--cream); }
+.wwd-num { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:300; color:rgba(201,150,42,0.45); line-height:1; margin-bottom:0.6rem; }
+.wwd-card h3 { font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:600; color:var(--navy); margin-bottom:0.5rem; line-height:1.25; }
+.wwd-card p { font-size:0.8rem; font-weight:300; line-height:1.8; color:#777; }
+ 
+.think { background:var(--navy); padding:6rem 4rem; }
+.think-list { list-style:none; display:grid; grid-template-columns:1fr 1fr; column-gap:4rem; margin:2.5rem 0 2rem; }
+.think-list li {
+  display:flex; align-items:flex-start; gap:1rem; padding:1rem 0;
+  border-bottom:1px solid rgba(201,150,42,0.15);
+  font-size:0.92rem; font-weight:300; line-height:1.6; color:rgba(255,255,255,0.8);
 }
-
+.think-list li::before { content:'◆'; font-size:0.45rem; color:var(--gold); margin-top:0.5rem; flex-shrink:0; }
+ 
 @media(max-width:900px){
-  .founder-feature { grid-template-columns:1fr; }
-  .founder-photo-col { min-height:380px; }
-  .founder-content-col { padding:3.5rem 1.5rem; }
-  .founder-proof { grid-template-columns:1fr 1fr; }
   .philosophy { padding:5rem 1.5rem; }
   .philosophy-grid { grid-template-columns:1fr; }
   .expertise-band { padding:5rem 1.5rem; }
   .expertise-grid { grid-template-columns:1fr; gap:3rem; }
   .difference { padding:5rem 1.5rem; }
   .diff-split { grid-template-columns:1fr; gap:3rem; }
-  .track-record { padding:5rem 1.5rem; }
-  .track-grid { grid-template-columns:1fr 1fr; }
-  .track-item { border-bottom:1px solid rgba(201,150,42,0.12); }
+  .wwd { padding:5rem 1.5rem; }
+  .wwd-grid { grid-template-columns:1fr; }
+  .think { padding:5rem 1.5rem; }
+  .think-list { grid-template-columns:1fr; }
 }
 .footer-logo {
   width: 140px;
@@ -295,13 +226,13 @@ footer{background:var(--navy-deep);border-top:1px solid rgba(201,150,42,0.12);pa
 </head>
 <body>
 <nav id="main-nav">
-
+ 
   <a href="index.html" class="nav-logo">
     <img 
       src="https://raw.githubusercontent.com/Kairosgrowthconsulting/Growth-Lifecycle-Marketing-Consultancy/main/logo.png"
       alt="Kairos Growth Consulting">
   </a>
-
+ 
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="services.html">Services</a></li>
@@ -310,218 +241,249 @@ footer{background:var(--navy-deep);border-top:1px solid rgba(201,150,42,0.12);pa
     <li><a href="insights.html">Insights</a></li>
     <li><a href="contact.html" class="nav-cta">Book a Call</a></li>
   </ul>
-
+ 
 </nav>
+ 
+<!-- ── HERO / WHO WE ARE ── -->
 <div class="page-hero">
   <div class="page-hero-grid"></div>
   <div class="page-hero-content">
-    <div class="page-hero-eyebrow anim-1">About Kairos</div>
-    <h1 class="anim-2">Growth built on<br><em>evidence</em>, not instinct</h1>
-    <p class="anim-3">Kairos Growth Consulting was founded on a simple conviction: most brands lose revenue not because they lack traffic, but because they lack the lifecycle systems to turn that traffic into lasting customer relationships.</p>
+    <div class="page-hero-eyebrow anim-1">Who We Are</div>
+    <h1 class="anim-2">Growth marketing built around <em>strategy</em>, data and results</h1>
+    <p class="anim-3">Kairos Growth Consulting is a growth marketing consultancy and digital marketing partner helping ambitious businesses build stronger brands, acquire customers and create sustainable growth.</p>
   </div>
 </div>
-
-<div class="ticker"><div class="ticker-inner"><span>Email Lifecycle</span><span>Retention Systems</span><span>Paid Acquisition</span><span>CRO</span><span>Brand Strategy</span><span>CRM Architecture</span><span>SEO Growth</span><span>Customer LTV</span><span>Analytics</span><span>Loyalty Programs</span><span>Email Lifecycle</span><span>Retention Systems</span><span>Paid Acquisition</span><span>CRO</span><span>Brand Strategy</span><span>CRM Architecture</span><span>SEO Growth</span><span>Customer LTV</span><span>Analytics</span><span>Loyalty Programs</span></div></div>
-
-<!-- ── FOUNDER FEATURE ── -->
-<div class="founder-feature">
-  
-  <div class="founder-content-col">
-    <div class="section-tag reveal">Meet the Founder</div>
-    <h2 class="founder-headline reveal">
-      The consultant who builds the<br>systems — and <em>stays until they work</em>
-    </h2>
- <div class="founder-body">
-      <p class="reveal">
-        I'm <strong>Mojisola Bamgbose</strong>, founder of Kairos Growth Consulting and a specialist in growth and lifecycle marketing for B2B and e-commerce brands. Over 5+ years working across Nigeria, the UAE, and Egypt, I've built the marketing infrastructure that helps brands stop losing customers they already paid to acquire.
-      </p>
-      <p class="reveal">
-        My work is grounded in behavioural data. I start by understanding exactly where and why customers drop off — then design automated programmes that move them forward: from first touch to activation, from one-time buyer to repeat customer, from trial user to paying subscriber. The result is a marketing system that compounds over time, not a campaign that runs out.
-      </p>
-      <p class="reveal">
-        At Kairos, I bring that same rigour to every client engagement. Whether you're an e-commerce brand struggling with repeat purchase rates, a SaaS company losing trial users before they see value, or a growing business ready to build real lifecycle infrastructure — I design the system, execute the strategy, and track every outcome against metrics that actually matter to your revenue.
-      </p>
+ 
+<div class="ticker"><div class="ticker-inner"><span>Growth Marketing</span><span>Digital Marketing Strategy</span><span>Brand Strategy</span><span>Performance Marketing</span><span>Customer Acquisition</span><span>Content Marketing</span><span>SEO</span><span>Public Relations</span><span>Influencer Marketing</span><span>Lifecycle & CRM</span><span>Analytics</span><span>Growth Marketing</span><span>Digital Marketing Strategy</span><span>Brand Strategy</span><span>Performance Marketing</span><span>Customer Acquisition</span><span>Content Marketing</span><span>SEO</span><span>Public Relations</span><span>Influencer Marketing</span><span>Lifecycle & CRM</span><span>Analytics</span></div></div>
+ 
+<!-- ── WHO WE ARE ── -->
+<div class="difference">
+  <div class="diff-split">
+    <div>
+      <div class="section-tag reveal">Who We Are</div>
+      <h2 class="section-title reveal">One consultancy.<br>Connected <em>growth systems.</em></h2>
+      <p class="lead reveal">We combine <strong>marketing strategy, brand positioning, performance marketing, content marketing, SEO, public relations, customer acquisition and marketing communications</strong> to create connected growth systems that move businesses forward.</p>
+      <p class="lead reveal">Our approach brings strategy and execution together. We identify the opportunity, build the strategy, activate the right channels, measure performance and continuously optimise what comes next.</p>
     </div>
-
-    <div class="founder-proof reveal">
-      <div class="proof-item">
-        <strong>18%</strong>
-        <span>Max YoY revenue growth delivered</span>
+    <div class="reveal">
+      <div class="expertise-quote">
+        <blockquote>Because effective marketing should do more than generate attention. It should generate growth.</blockquote>
+        <cite>Kairos Growth Consulting</cite>
       </div>
-      <div class="proof-item">
-        <strong>−9%</strong>
-        <span>Early churn reduction achieved</span>
-      </div>
-      <div class="proof-item">
-        <strong>+13%</strong>
-        <span>Activation rate improvement</span>
-      </div>
-      <div class="proof-item">
-        <strong>−14%</strong>
-        <span>CAC reduction, quality maintained</span>
-      </div>
-    </div>
-
-    <div class="founder-creds reveal">
-      <span class="cred-pill">Growth Marketing</span>
-      <span class="cred-pill">Lifecycle Automation</span>
-      <span class="cred-pill">CRM Strategy</span>
-      <span class="cred-pill">Retention & Churn</span>
-      <span class="cred-pill">Iterable · HubSpot</span>
-      <span class="cred-pill">Google Analytics 4</span>
-      <span class="cred-pill">Meta Blueprint Certified</span>
-      <span class="cred-pill">GDPR Compliant</span>
-    </div>
-
-    <div style="margin-top:2rem;" class="reveal">
-      <a href="contact.html" class="btn-gold">Work with Mojisola →</a>
     </div>
   </div>
 </div>
-
-<!-- ── TRACK RECORD ── -->
-<div class="track-record">
-  <div class="section-tag reveal" style="justify-content:center;">Proven Outcomes</div>
-  <h2 class="section-title on-dark reveal" style="text-align:center;">Numbers that <em>speak</em> for themselves</h2>
-  <div class="track-grid">
-    <div class="track-item reveal">
-      <strong>18%</strong>
-      <span>Max YoY revenue growth across managed accounts</span>
-    </div>
-    <div class="track-item reveal">
-      <strong>+24%</strong>
-      <span>Email & SMS open rate lift via behavioural segmentation</span>
-    </div>
-    <div class="track-item reveal">
-      <strong>−9%</strong>
-      <span>Early-stage churn reduction through onboarding redesign</span>
-    </div>
-    <div class="track-item reveal">
-      <strong>60+</strong>
-      <span>Qualified leads generated monthly from zero CRM baseline</span>
-    </div>
-  </div>
-</div>
-
-<!-- ── PHILOSOPHY ── -->
+ 
+<!-- ── OUR APPROACH ── -->
 <div class="philosophy">
-  <div class="section-tag reveal">The Kairos Approach</div>
-  <h2 class="section-title on-dark reveal">The six principles<br>behind every <em>engagement</em></h2>
+  <div class="section-tag reveal">Our Approach</div>
+  <h2 class="section-title on-dark reveal">Strategy first. Data informed.<br><em>Built for growth.</em></h2>
+  <p class="lead on-dark reveal">Successful digital marketing starts with understanding the business behind the marketing. We look at your market, customers, competitors, positioning, channels and performance data to understand where growth is being created and where opportunities are being missed.</p>
+  <p class="lead on-dark reveal">From there, we build a <strong>digital marketing strategy</strong> that connects brand, acquisition, content, campaigns, communications and customer experience.</p>
   <div class="philosophy-grid">
     <div class="phil-card reveal">
       <div class="phil-num">01</div>
-      <h4>Behavioural data first</h4>
-      <p>Every strategy starts with what your customers actually do — not what we assume they want. Cohort analysis and funnel data tell the truth that surveys don't.</p>
+      <h3>Understand</h3>
+      <p>We analyse your business, target audience, market and competitive landscape to identify the opportunities that matter most.</p>
     </div>
     <div class="phil-card reveal">
       <div class="phil-num">02</div>
-      <h4>Activation before acquisition</h4>
-      <p>Spending on acquisition before fixing activation is expensive. We diagnose where users drop before the value moment — and fix that first.</p>
+      <h3>Strategise</h3>
+      <p>We develop a clear marketing strategy aligned with your business objectives, customer behaviour and growth priorities.</p>
     </div>
     <div class="phil-card reveal">
       <div class="phil-num">03</div>
-      <h4>Lifecycle over campaigns</h4>
-      <p>Campaigns stop. Lifecycle systems don't. We build automated programmes that keep working — improving with every data point and every iteration.</p>
+      <h3>Create</h3>
+      <p>We build the positioning, messaging, content and creative direction required to communicate your value clearly and consistently.</p>
     </div>
     <div class="phil-card reveal">
       <div class="phil-num">04</div>
-      <h4>One North Star metric</h4>
-      <p>We align every experiment and every decision to a single North Star metric. Clarity on what success looks like is the only way to compound progress.</p>
+      <h3>Activate</h3>
+      <p>We execute across relevant growth channels, including paid media, SEO, content marketing, social media, PR, influencer marketing and partnerships.</p>
     </div>
     <div class="phil-card reveal">
       <div class="phil-num">05</div>
-      <h4>Test, measure, compound</h4>
-      <p>Nothing goes live without a hypothesis. Nothing stays live without evidence. A structured experimentation culture turns good marketing into great economics.</p>
+      <h3>Optimise</h3>
+      <p>We use performance data to improve campaigns, customer journeys, conversion rates and marketing efficiency.</p>
     </div>
     <div class="phil-card reveal">
       <div class="phil-num">06</div>
-      <h4>Full transparency</h4>
-      <p>You see everything — dashboards, experiment logs, attribution data. You own the systems we build. Knowledge transfer is non-negotiable in every engagement.</p>
+      <h3>Grow</h3>
+      <p>We turn successful experiments and strategies into repeatable marketing systems that can scale with the business.</p>
     </div>
   </div>
 </div>
-
-<!-- ── EXPERTISE ── -->
+ 
+<!-- ── THE CHALLENGE WE SOLVE ── -->
 <div class="expertise-band">
-  <div class="section-tag reveal">Where We Excel</div>
-  <h2 class="section-title reveal">Deep expertise in the<br>areas that <em>move revenue</em></h2>
+  <div class="section-tag reveal">The Challenge We Solve</div>
+  <h2 class="section-title reveal">Your marketing should<br>work as <em>one system</em></h2>
   <div class="expertise-grid">
     <div>
+      <p class="lead reveal">Many businesses invest in digital marketing without having a connected growth strategy. Each activity runs on its own:</p>
       <ul class="expertise-list">
-        <li class="reveal"><div><strong style="display:block;color:var(--navy);font-weight:500;margin-bottom:0.2rem;">Lifecycle automation & CRM</strong>Building full customer journey programmes in Iterable and HubSpot — from onboarding sequences to win-back flows — that run automatically and improve over time.</div></li>
-        <li class="reveal"><div><strong style="display:block;color:var(--navy);font-weight:500;margin-bottom:0.2rem;">Behavioural segmentation</strong>Designing multi-dimensional segmentation models using product usage events and firmographic data — so every message reaches the right person at the right moment.</div></li>
-        <li class="reveal"><div><strong style="display:block;color:var(--navy);font-weight:500;margin-bottom:0.2rem;">Churn diagnosis & retention</strong>Using cohort analysis and funnel data to pinpoint exactly where and why customers leave — then designing the interventions that change those numbers.</div></li>
-        <li class="reveal"><div><strong style="display:block;color:var(--navy);font-weight:500;margin-bottom:0.2rem;">Paid acquisition & CRO</strong>Restructuring Google Ads and Meta campaigns around high-LTV audiences and aligning ad-to-landing-page flows that convert — reducing CAC without sacrificing lead quality.</div></li>
-        <li class="reveal"><div><strong style="display:block;color:var(--navy);font-weight:500;margin-bottom:0.2rem;">Growth strategy & experimentation</strong>Running structured A/B testing programmes with ICE-prioritised hypotheses, defined significance thresholds, and real-time reporting — building a compounding experimentation culture.</div></li>
+        <li class="reveal">They run paid advertising.</li>
+        <li class="reveal">They publish content.</li>
+        <li class="reveal">They invest in social media.</li>
+        <li class="reveal">They work with influencers.</li>
+        <li class="reveal">They send emails.</li>
+        <li class="reveal">They launch campaigns.</li>
       </ul>
-
-      <div class="market-coverage reveal">
-        <h4>Markets Served</h4>
-        <div class="market-flags">
-          <span class="market-flag">🇳🇬 Nigeria</span>
-          <span class="market-flag">🇦🇪 UAE</span>
-          <span class="market-flag">🇪🇬 Egypt</span>
-          <span class="market-flag">🇬🇧 United Kingdom</span>
-          <span class="market-flag">🌍 Global Remote</span>
-        </div>
-      </div>
     </div>
-
+ 
     <div class="reveal">
       <div class="expertise-quote">
-        <blockquote>"I don't build campaigns. I build the systems that make your marketing work while you sleep — and keep improving every month."</blockquote>
-        <cite>— Mojisola Bamgbose, Founder, Kairos Growth Consulting</cite>
+        <blockquote>The problem is not always a lack of marketing. Sometimes, it is a lack of strategy and connection.</blockquote>
+        <cite>The challenge we solve</cite>
       </div>
-
+ 
       <div style="margin-top:2rem;background:var(--white);border:1px solid var(--border);padding:2rem;border-radius:2px;" class="reveal">
-        <h4 style="font-size:0.65rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;">Certifications</h4>
-        <div style="display:flex;flex-direction:column;gap:0.6rem;">
-          <div style="display:flex;align-items:center;gap:0.75rem;font-size:0.8rem;font-weight:300;color:#555;"><span style="color:var(--gold);font-size:0.45rem;">◆</span>Google Analytics 4 — Google</div>
-          <div style="display:flex;align-items:center;gap:0.75rem;font-size:0.8rem;font-weight:300;color:#555;"><span style="color:var(--gold);font-size:0.45rem;">◆</span>Meta Blueprint — Marketing Science</div>
-          <div style="display:flex;align-items:center;gap:0.75rem;font-size:0.8rem;font-weight:300;color:#555;"><span style="color:var(--gold);font-size:0.45rem;">◆</span>HubSpot Inbound Marketing</div>
-          <div style="display:flex;align-items:center;gap:0.75rem;font-size:0.8rem;font-weight:300;color:#555;"><span style="color:var(--gold);font-size:0.45rem;">◆</span>Marketing Automation Expert — LinkedIn</div>
-          <div style="display:flex;align-items:center;gap:0.75rem;font-size:0.8rem;font-weight:300;color:#555;"><span style="color:var(--gold);font-size:0.45rem;">◆</span>GDPR Foundations — Udemy</div>
-          <div style="display:flex;align-items:center;gap:0.75rem;font-size:0.8rem;font-weight:300;color:#555;"><span style="color:var(--gold);font-size:0.45rem;">◆</span>Digital Marketing — Google Garage</div>
-        </div>
+        <p style="font-size:0.85rem;font-weight:300;line-height:1.9;color:#555;margin-bottom:1rem;">The result is fragmented marketing, inconsistent messaging, limited visibility into performance and difficulty connecting marketing activity to business outcomes.</p>
+        <p style="font-size:0.85rem;font-weight:300;line-height:1.9;color:#555;">Kairos brings the different parts of marketing together so your brand, campaigns, content, customer acquisition and communications work towards the same commercial objectives.</p>
       </div>
     </div>
   </div>
 </div>
-
-<!-- ── HOW WE'RE DIFFERENT ── -->
+ 
+<!-- ── WHAT WE DO ── -->
+<div class="wwd">
+  <div class="section-tag reveal">What We Do</div>
+  <h2 class="section-title reveal">Integrated marketing services<br>for <em>sustainable growth</em></h2>
+  <p class="lead reveal">Our services cover the major growth levers businesses need to build visibility, acquire customers, improve performance and strengthen their market position.</p>
+  <div class="wwd-grid">
+    <a href="services.html#brand-communications" class="wwd-card reveal">
+      <div class="wwd-num">01</div>
+      <h3>Brand Positioning & Marketing Communications</h3>
+      <p>We help businesses define their brand strategy, positioning, messaging and marketing communications so they can communicate a clear and differentiated value proposition.</p>
+    </a>
+    <a href="services.html#campaigns" class="wwd-card reveal">
+      <div class="wwd-num">02</div>
+      <h3>Digital Campaign Planning & Optimisation</h3>
+      <p>We plan and optimise digital marketing campaigns across relevant channels, using performance data to improve reach, engagement, acquisition and return on marketing investment.</p>
+    </a>
+    <a href="services.html#content" class="wwd-card reveal">
+      <div class="wwd-num">03</div>
+      <h3>Content Development & Creative Strategy</h3>
+      <p>We develop content marketing strategies and creative direction that help brands communicate their value, educate their audience and create demand.</p>
+    </a>
+    <a href="services.html#pr" class="wwd-card reveal">
+      <div class="wwd-num">04</div>
+      <h3>Public Relations & Crisis Management</h3>
+      <p>We develop PR strategies, media communications and reputation management programmes that help businesses build credibility and respond effectively when their reputation is at risk.</p>
+    </a>
+    <a href="services.html#influencer" class="wwd-card reveal">
+      <div class="wwd-num">05</div>
+      <h3>Influencer & Affiliate Programme Coordination</h3>
+      <p>We plan and coordinate influencer marketing and affiliate marketing programmes designed to extend reach, build trust and create measurable acquisition opportunities.</p>
+    </a>
+    <a href="services.html#growth" class="wwd-card reveal">
+      <div class="wwd-num">06</div>
+      <h3>Growth Strategy & Paid Acquisition</h3>
+      <p>We develop growth marketing strategies and paid acquisition programmes designed to reach high-value audiences and improve customer acquisition efficiency.</p>
+    </a>
+    <a href="services.html#lifecycle" class="wwd-card reveal">
+      <div class="wwd-num">07</div>
+      <h3>Lifecycle Marketing & CRM</h3>
+      <p>We use CRM, marketing automation, customer segmentation and lifecycle marketing to improve activation, engagement, retention and customer value.</p>
+    </a>
+    <a href="services.html#cro" class="wwd-card reveal">
+      <div class="wwd-num">08</div>
+      <h3>Conversion Rate Optimisation</h3>
+      <p>We identify opportunities across websites, landing pages and customer journeys to improve conversion rates and customer acquisition performance.</p>
+    </a>
+    <a href="services.html#seo" class="wwd-card reveal">
+      <div class="wwd-num">09</div>
+      <h3>SEO & Content Growth</h3>
+      <p>We build SEO and content strategies that help businesses increase organic visibility, attract relevant search traffic and create sustainable sources of demand.</p>
+    </a>
+    <a href="services.html#data" class="wwd-card reveal">
+      <div class="wwd-num">10</div>
+      <h3>Data, Analytics & Reporting</h3>
+      <p>We connect marketing activity to measurable outcomes through marketing analytics, tracking, attribution, dashboards and performance reporting.</p>
+    </a>
+  </div>
+  <a href="services.html" class="btn-navy reveal">Explore all services →</a>
+</div>
+ 
+<!-- ── HOW WE THINK ── -->
+<div class="think">
+  <div class="section-tag reveal">How We Think</div>
+  <h2 class="section-title on-dark reveal">Good marketing gets attention.<br>Effective marketing creates action.<br><em>Great marketing creates sustainable growth.</em></h2>
+  <p class="lead on-dark reveal">We believe marketing should be accountable to the business. That means going beyond vanity metrics and asking the questions that actually matter:</p>
+  <ul class="think-list">
+    <li class="reveal">Are we reaching the right audience?</li>
+    <li class="reveal">Is our positioning clear?</li>
+    <li class="reveal">Are our campaigns generating quality demand?</li>
+    <li class="reveal">Is our marketing converting?</li>
+    <li class="reveal">Which channels are creating the strongest return?</li>
+    <li class="reveal">What does the customer data tell us?</li>
+    <li class="reveal">What should we change next?</li>
+  </ul>
+  <p class="lead on-dark reveal" style="margin-bottom:0;">This is how we connect marketing strategy to execution, and execution to measurable business growth.</p>
+</div>
+ 
+<!-- ── WHY KAIROS ── -->
 <div class="difference">
   <div class="diff-split">
     <div>
       <div class="section-tag reveal">Why Kairos</div>
-      <h2 class="section-title reveal">The standard model<br>is <em>broken</em></h2>
-      <p class="reveal" style="font-size:0.9rem;font-weight:300;line-height:1.9;color:#555;margin-bottom:1.5rem;">Most agencies separate strategy from execution. We don't. Every engagement is led by a senior practitioner — someone who has built these systems inside real companies, at scale, across international markets.</p>
-      <p class="reveal" style="font-size:0.9rem;font-weight:300;line-height:1.9;color:#555;">We work with a small number of clients by design. You get direct access to the strategist who owns your results — not an account manager relaying messages to a junior team.</p>
-      <a href="contact.html" class="btn-navy reveal" style="margin-top:2rem;">See how we work →</a>
+      <h2 class="section-title reveal">A strategic growth partner,<br>not just another <em>marketing agency</em></h2>
+      <p class="lead reveal">Kairos combines the strategic thinking of a marketing consultancy with the practical execution of a growth marketing team.</p>
+      <p class="lead reveal">We do not believe businesses need more disconnected marketing activity. They need a clear strategy, the right channels, measurable objectives and a process for continuously improving performance.</p>
+      <a href="contact.html" class="btn-navy reveal" style="margin-top:1rem;">Book a Strategy Call →</a>
     </div>
     <div>
       <div class="diff-table reveal">
-        <div class="diff-head"><span>Kairos</span><span>Typical Agency</span></div>
-        <div class="diff-row"><div class="diff-col">Founder-led, senior on every account</div><div class="diff-col">Junior execs, senior pitchers</div></div>
-        <div class="diff-row"><div class="diff-col">Behavioural data drives every decision</div><div class="diff-col">Intuition and templates</div></div>
-        <div class="diff-row"><div class="diff-col">Outcome-based accountability</div><div class="diff-col">Hours billed regardless of results</div></div>
-        <div class="diff-row"><div class="diff-col">Full dashboard visibility in real time</div><div class="diff-col">Monthly PDF reports</div></div>
-        <div class="diff-row"><div class="diff-col">Systems you own, fully documented</div><div class="diff-col">Knowledge locked with the agency</div></div>
-        <div class="diff-row"><div class="diff-col">International market experience</div><div class="diff-col">Single-market perspective</div></div>
+        <div class="diff-head"><span>Kairos</span><span>In practice</span></div>
+        <div class="diff-row"><div class="diff-col">Strategy-led</div><div class="diff-col">Every marketing initiative starts with a clear business objective.</div></div>
+        <div class="diff-row"><div class="diff-col">Data-driven</div><div class="diff-col">We use customer and performance data to inform decisions and prioritise opportunities.</div></div>
+        <div class="diff-row"><div class="diff-col">Integrated</div><div class="diff-col">Brand strategy, digital marketing, content, paid media, PR and customer acquisition work together rather than in silos.</div></div>
+        <div class="diff-row"><div class="diff-col">Performance-focused</div><div class="diff-col">We measure meaningful outcomes and optimise continuously.</div></div>
+        <div class="diff-row"><div class="diff-col">Customer-centred</div><div class="diff-col">We build strategies around real customer needs, behaviours and decision-making.</div></div>
+        <div class="diff-row"><div class="diff-col">Commercial</div><div class="diff-col">The objective is not simply more traffic, followers or impressions. It is sustainable business growth.</div></div>
       </div>
     </div>
   </div>
 </div>
-
-<div class="cta-band">
-  <div class="section-tag reveal">Work With Mojisola</div>
-  <h2 class="reveal">Ready to build growth<br>that <em>actually compounds?</em></h2>
-  <p class="reveal">We take on a limited number of clients each quarter. Start with a free 45-minute strategy call — no hard sell, just an honest assessment of your biggest lifecycle gaps and what it would take to close them.</p>
-  <div class="cta-actions reveal">
-    <a href="contact.html" class="btn-gold">Book a Strategy Call →</a>
-    <a href="case-studies.html" class="btn-ghost-white">See the results first</a>
+ 
+<!-- ── OUR PHILOSOPHY ── -->
+<div class="expertise-band">
+  <div class="section-tag reveal">Our Philosophy</div>
+  <h2 class="section-title reveal">Build. Measure. Learn.<br><em>Compound.</em></h2>
+  <div class="expertise-grid">
+    <div>
+      <p class="lead reveal">Marketing never stands still. Customer behaviour changes. Technology changes. Platforms change. Competition changes.</p>
+      <p class="lead reveal">The strongest businesses build marketing systems that can adapt. At Kairos, we believe growth comes from a continuous cycle of strategy, execution, measurement, learning and optimisation.</p>
+      <p class="lead reveal">That is how marketing becomes a compounding growth engine rather than a collection of disconnected campaigns.</p>
+    </div>
+    <div class="reveal">
+      <div class="expertise-quote">
+        <blockquote>Every campaign creates data. Every result creates insight. Every insight creates an opportunity to improve.</blockquote>
+        <div class="cycle-pills">
+          <span class="cred-pill">Strategy</span>
+          <span class="cred-pill">Execution</span>
+          <span class="cred-pill">Measurement</span>
+          <span class="cred-pill">Learning</span>
+          <span class="cred-pill">Optimisation</span>
+          <span class="cred-pill">Growth</span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
+ 
+<!-- ── WHERE WE ARE GOING / CTA ── -->
+<div class="cta-band">
+  <div class="section-tag reveal">Where We Are Going</div>
+  <h2 class="reveal">Building better marketing systems<br>for <em>ambitious businesses</em></h2>
+  <p class="reveal" style="max-width:660px;">Kairos Growth Consulting exists to help businesses make better marketing decisions, build stronger brands and create more effective customer acquisition systems. From growth marketing and digital marketing strategy to brand positioning, paid acquisition, SEO, content marketing, public relations and influencer marketing, we help businesses turn marketing into a more connected and measurable growth function.</p>
+  <p class="reveal" style="max-width:660px;color:rgba(255,255,255,0.75);">Ready to build what comes next? Let's build a marketing strategy designed around your business, your customers and your growth goals.</p>
+  <div class="cta-actions reveal">
+    <a href="contact.html" class="btn-gold">Book a Strategy Call →</a>
+    <a href="services.html" class="btn-ghost-white">Explore our services</a>
+  </div>
+</div>
+ 
 <footer>
   <div class="footer-grid">
     <!-- Logo Column -->
@@ -542,6 +504,11 @@ footer{background:var(--navy-deep);border-top:1px solid rgba(201,150,42,0.12);pa
         <li><a href="services.html#cro">CRO</a></li>
         <li><a href="services.html#seo">SEO & Content</a></li>
         <li><a href="services.html#data">Data & Analytics</a></li>
+        <li><a href="services.html#brand-communications">Marketing Communications</a></li>
+        <li><a href="services.html#campaigns">Digital Campaigns</a></li>
+        <li><a href="services.html#content">Content & Creative</a></li>
+        <li><a href="services.html#pr">PR & Crisis Management</a></li>
+        <li><a href="services.html#influencer">Influencer & Affiliate</a></li>
       </ul>
     </div>
     
@@ -572,7 +539,6 @@ footer{background:var(--navy-deep);border-top:1px solid rgba(201,150,42,0.12);pa
     <div class="footer-badge">Global Standard ◆</div>
   </div>
 </footer>
-</div><div class="footer-bottom"><p>© 2025 Kairos Growth Consulting. All rights reserved.</p><div class="footer-badge">Global Standard ◆</div></div></footer>
 <script>window.addEventListener('scroll',()=>{document.getElementById('main-nav').style.boxShadow=window.scrollY>40?'0 4px 30px rgba(0,0,0,0.07)':'none';});document.querySelectorAll('.reveal').forEach(el=>{new IntersectionObserver(([e])=>{if(e.isIntersecting)e.target.classList.add('visible');},{threshold:0.1}).observe(el);});</script>
 </body>
 </html>
