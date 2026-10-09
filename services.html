@@ -1,7 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Services — Kairos Growth Consulting</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="mobile-nav.css">
 <style>
 :root{--gold:#C9962A;--gold-light:#E8B94A;--gold-pale:#F5E6C4;--navy:#1A2744;--navy-deep:#0D1728;--cream:#F4F2EC;--white:#FFFFFF;--text-muted:#9A9488;--text-dark:#2C2C2A;--border:rgba(201,150,42,0.18);--border-light:rgba(201,150,42,0.1);}
 *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
@@ -23,7 +22,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .btn-outline:hover{background:var(--gold);color:var(--white);}
 .btn-ghost-white{font-size:0.72rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);text-decoration:none;padding-bottom:2px;border-bottom:1px solid rgba(255,255,255,0.25);transition:all 0.25s;}
 .btn-ghost-white:hover{color:var(--gold);border-color:var(--gold);}
-
+.section-tag{display:inline-flex;align-items:center;gap:0.75rem;font-size:0.62rem;font-weight:500;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
 .section-tag::before{content:'';width:28px;height:1px;background:var(--gold);}
 h2.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.8vw,3rem);font-weight:300;line-height:1.15;color:var(--navy);margin-bottom:1.25rem;}
 h2.section-title em{font-style:italic;color:var(--gold);}h2.section-title.on-dark{color:var(--white);}
@@ -93,7 +92,8 @@ footer{background:var(--navy-deep);border-top:1px solid rgba(201,150,42,0.12);pa
   display: block;
   background: transparent !important;
 }
-</style></head><body>
+</style>
+<link rel="stylesheet" href="mobile-nav.css"></head><body>
 <nav id="main-nav">
  
   <a href="index.html" class="nav-logo">
@@ -494,7 +494,15 @@ footer{background:var(--navy-deep);border-top:1px solid rgba(201,150,42,0.12);pa
       </ul>
     </div>
   </div>
+  
+  <div class="footer-bottom">
+    <p>© 2025 Kairos Growth Consulting. All rights reserved.</p>
+  </div>
 </footer>
+<script>window.addEventListener('scroll',()=>{document.getElementById('main-nav').style.boxShadow=window.scrollY>40?'0 4px 30px rgba(0,0,0,0.07)':'none';});document.querySelectorAll('.reveal').forEach(el=>{new IntersectionObserver(([e])=>{if(e.isIntersecting)e.target.classList.add('visible');},{threshold:0.1}).observe(el);});</script>
+<script src="mobile-nav.js"></script>
+</body></html>
+ 
 <script>window.addEventListener('scroll',()=>{document.getElementById('main-nav').style.boxShadow=window.scrollY>40?'0 4px 30px rgba(0,0,0,0.07)':'none';});document.querySelectorAll('.reveal').forEach(el=>{new IntersectionObserver(([e])=>{if(e.isIntersecting)e.target.classList.add('visible');},{threshold:0.1}).observe(el);});</script>
 <script src="mobile-nav.js"></script>
 </body></html>
