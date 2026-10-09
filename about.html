@@ -4,6 +4,7 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>About — Kairos Growth Consulting</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="mobile-nav.css">
 <style>:root{--gold:#C9962A;--gold-light:#E8B94A;--gold-pale:#F5E6C4;--navy:#1A2744;--navy-deep:#0D1728;--cream:#F4F2EC;--white:#FFFFFF;--text-muted:#9A9488;--text-dark:#2C2C2A;--border:rgba(201,150,42,0.18);}
 *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}body{font-family:'DM Sans',sans-serif;color:var(--text-dark);background:var(--white);overflow-x:hidden;}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 4rem;background:rgba(255,255,255,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:all 0.3s;}
@@ -483,7 +484,6 @@ footer{background:var(--navy-deep);border-top:1px solid rgba(201,150,42,0.12);pa
     <a href="services.html" class="btn-ghost-white">Explore our services</a>
   </div>
 </div>
- 
 <footer>
   <div class="footer-grid">
     <!-- Logo Column -->
@@ -536,9 +536,9 @@ footer{background:var(--navy-deep);border-top:1px solid rgba(201,150,42,0.12);pa
   
   <div class="footer-bottom">
     <p>© 2025 Kairos Growth Consulting. All rights reserved.</p>
-    <div class="footer-badge">Global Standard ◆</div>
   </div>
 </footer>
 <script>window.addEventListener('scroll',()=>{document.getElementById('main-nav').style.boxShadow=window.scrollY>40?'0 4px 30px rgba(0,0,0,0.07)':'none';});document.querySelectorAll('.reveal').forEach(el=>{new IntersectionObserver(([e])=>{if(e.isIntersecting)e.target.classList.add('visible');},{threshold:0.1}).observe(el);});</script>
+<script src="mobile-nav.js"></script>
 </body>
 </html>
