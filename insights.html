@@ -1,18 +1,17 @@
----
+--
 layout: default
 title: Insights
 ---
-
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+ 
 <title>Insights — Kairos Growth Consulting</title>
-
+ 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="mobile-nav.css">
 <style>
 :root{
   --gold:#C9962A;
@@ -26,26 +25,26 @@ title: Insights
   --text-dark:#2C2C2A;
   --border:rgba(201,150,42,0.18);
 }
-
+ 
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
 }
-
+ 
 html{
   scroll-behavior:smooth;
 }
-
+ 
 body{
   font-family:'DM Sans',sans-serif;
   color:var(--text-dark);
   background:var(--white);
   overflow-x:hidden;
 }
-
+ 
 /* NAVBAR */
-
+ 
 nav{
   position:fixed;
   top:0;
@@ -60,20 +59,20 @@ nav{
   backdrop-filter:blur(16px);
   border-bottom:1px solid var(--border);
 }
-
+ 
 .nav-logo img{
   height:46px;
   width:auto;
   display:block;
 }
-
+ 
 .nav-links{
   display:flex;
   align-items:center;
   gap:2rem;
   list-style:none;
 }
-
+ 
 .nav-links a{
   text-decoration:none;
   font-size:0.75rem;
@@ -82,31 +81,31 @@ nav{
   color:var(--text-dark);
   position:relative;
 }
-
+ 
 .nav-links a:hover{
   color:var(--gold);
 }
-
+ 
 .nav-cta{
   background:var(--navy);
   color:var(--white)!important;
   padding:0.7rem 1.4rem;
   border-radius:2px;
 }
-
+ 
 .nav-cta:hover{
   background:var(--gold);
 }
-
+ 
 /* HERO */
-
+ 
 .page-hero{
   padding:10rem 4rem 5rem;
   background:var(--navy-deep);
   position:relative;
   overflow:hidden;
 }
-
+ 
 .page-hero-grid{
   position:absolute;
   inset:0;
@@ -115,13 +114,13 @@ nav{
     linear-gradient(90deg, rgba(201,150,42,0.05) 1px, transparent 1px);
   background-size:60px 60px;
 }
-
+ 
 .page-hero-content{
   position:relative;
   z-index:2;
   max-width:760px;
 }
-
+ 
 .page-hero-eyebrow{
   display:inline-flex;
   align-items:center;
@@ -132,14 +131,14 @@ nav{
   color:var(--gold);
   margin-bottom:1.5rem;
 }
-
+ 
 .page-hero-eyebrow::before{
   content:'';
   width:28px;
   height:1px;
   background:var(--gold);
 }
-
+ 
 .page-hero h1{
   font-family:'Cormorant Garamond',serif;
   font-size:clamp(2.8rem,5vw,4.8rem);
@@ -148,33 +147,33 @@ nav{
   color:var(--white);
   margin-bottom:1.5rem;
 }
-
+ 
 .page-hero h1 em{
   color:var(--gold);
   font-style:italic;
 }
-
+ 
 .page-hero p{
   color:rgba(255,255,255,0.65);
   line-height:1.9;
   font-size:1rem;
   max-width:600px;
 }
-
+ 
 /* TICKER */
-
+ 
 .ticker{
   background:var(--gold);
   overflow:hidden;
   padding:0.85rem 0;
 }
-
+ 
 .ticker-inner{
   display:flex;
   white-space:nowrap;
   animation:ticker 35s linear infinite;
 }
-
+ 
 .ticker-inner span{
   padding:0 2rem;
   font-size:0.65rem;
@@ -182,24 +181,24 @@ nav{
   text-transform:uppercase;
   color:var(--navy);
 }
-
+ 
 .ticker-inner span::before{
   content:"◆";
   margin-right:2rem;
   opacity:0.5;
 }
-
+ 
 @keyframes ticker{
   0%{transform:translateX(0);}
   100%{transform:translateX(-50%);}
 }
-
+ 
 /* INSIGHTS */
-
+ 
 .insights-main{
   padding:6rem 4rem;
 }
-
+ 
 .insights-featured{
   display:grid;
   grid-template-columns:1.6fr 1fr;
@@ -207,7 +206,7 @@ nav{
   background:var(--border);
   margin-bottom:2px;
 }
-
+ 
 .insight-feat{
   background:var(--white);
   padding:3.5rem;
@@ -215,19 +214,19 @@ nav{
   color:inherit;
   transition:0.3s;
 }
-
+ 
 .insight-feat:hover{
   background:var(--cream);
 }
-
+ 
 .insight-feat.dark{
   background:var(--navy);
 }
-
+ 
 .insight-feat.dark:hover{
   background:#243660;
 }
-
+ 
 .insight-cat{
   display:inline-block;
   margin-bottom:1.2rem;
@@ -239,11 +238,11 @@ nav{
   padding:0.3rem 0.8rem;
   border-radius:100px;
 }
-
+ 
 .insight-feat.dark .insight-cat{
   background:rgba(201,150,42,0.15);
 }
-
+ 
 .insight-feat h2{
   font-family:'Cormorant Garamond',serif;
   font-size:1.9rem;
@@ -251,34 +250,34 @@ nav{
   margin-bottom:1rem;
   color:var(--navy);
 }
-
+ 
 .insight-feat.dark h2{
   color:var(--white);
 }
-
+ 
 .insight-feat p{
   line-height:1.9;
   color:#666;
   margin-bottom:1.5rem;
 }
-
+ 
 .insight-feat.dark p{
   color:rgba(255,255,255,0.6);
 }
-
+ 
 .insight-meta{
   font-size:0.68rem;
   color:var(--text-muted);
   letter-spacing:0.08em;
 }
-
+ 
 .insights-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:2px;
   background:var(--border);
 }
-
+ 
 .insight-card{
   background:var(--white);
   padding:2.5rem 2rem;
@@ -287,12 +286,12 @@ nav{
   transition:0.3s;
   border-bottom:2px solid transparent;
 }
-
+ 
 .insight-card:hover{
   background:var(--cream);
   border-color:var(--gold);
 }
-
+ 
 .insight-card h3{
   font-family:'Cormorant Garamond',serif;
   font-size:1.25rem;
@@ -300,48 +299,48 @@ nav{
   margin-bottom:0.8rem;
   line-height:1.3;
 }
-
+ 
 .insight-card p{
   color:#666;
   line-height:1.8;
   margin-bottom:1rem;
   font-size:0.85rem;
 }
-
+ 
 .read-time{
   font-size:0.65rem;
   color:var(--text-muted);
 }
-
+ 
 /* NEWSLETTER */
-
+ 
 .newsletter{
   background:var(--cream);
   padding:6rem 4rem;
 }
-
+ 
 .newsletter-inner{
   max-width:600px;
   margin:auto;
   text-align:center;
 }
-
+ 
 .newsletter h2{
   font-family:'Cormorant Garamond',serif;
   font-size:3rem;
   color:var(--navy);
   margin-bottom:1rem;
 }
-
+ 
 .newsletter h2 em{
   color:var(--gold);
 }
-
+ 
 .newsletter p{
   color:#666;
   line-height:1.9;
 }
-
+ 
 .newsletter-form{
   display:flex;
   margin-top:2rem;
@@ -349,7 +348,7 @@ nav{
   border:1px solid var(--border);
   background:var(--white);
 }
-
+ 
 .newsletter-form input{
   flex:1;
   border:none;
@@ -357,7 +356,7 @@ nav{
   outline:none;
   font-family:'DM Sans',sans-serif;
 }
-
+ 
 .newsletter-form button{
   border:none;
   background:var(--gold);
@@ -367,15 +366,15 @@ nav{
   text-transform:uppercase;
   letter-spacing:0.12em;
 }
-
+ 
 /* CTA */
-
+ 
 .cta-band{
   background:var(--navy-deep);
   padding:7rem 4rem;
   text-align:center;
 }
-
+ 
 .cta-band h2{
   font-family:'Cormorant Garamond',serif;
   color:var(--white);
@@ -383,25 +382,25 @@ nav{
   font-weight:300;
   margin-bottom:1rem;
 }
-
+ 
 .cta-band h2 em{
   color:var(--gold);
 }
-
+ 
 .cta-band p{
   color:rgba(255,255,255,0.55);
   max-width:600px;
   margin:auto;
   line-height:1.9;
 }
-
+ 
 .cta-actions{
   margin-top:2rem;
   display:flex;
   justify-content:center;
   gap:1rem;
 }
-
+ 
 .btn-gold{
   background:var(--gold);
   color:var(--navy);
@@ -411,39 +410,39 @@ nav{
   text-transform:uppercase;
   letter-spacing:0.12em;
 }
-
+ 
 .btn-ghost-white{
   color:rgba(255,255,255,0.7);
   text-decoration:none;
   border-bottom:1px solid rgba(255,255,255,0.25);
   align-self:center;
 }
-
+ 
 /* FOOTER */
-
+ 
 footer{
   background:var(--navy-deep);
   padding:4rem;
   border-top:1px solid rgba(201,150,42,0.12);
 }
-
+ 
 .footer-grid{
   display:grid;
   grid-template-columns:2fr 1fr 1fr;
   gap:3rem;
 }
-
+ 
 .footer-logo{
   width:140px;
   margin-bottom:1rem;
 }
-
+ 
 .footer-brand p{
   color:rgba(255,255,255,0.45);
   line-height:1.9;
   max-width:320px;
 }
-
+ 
 .footer-col h5{
   color:var(--gold);
   margin-bottom:1rem;
@@ -451,36 +450,36 @@ footer{
   letter-spacing:0.18em;
   font-size:0.65rem;
 }
-
+ 
 .footer-col ul{
   list-style:none;
 }
-
+ 
 .footer-col li{
   margin-bottom:0.7rem;
 }
-
+ 
 .footer-col a{
   color:rgba(255,255,255,0.5);
   text-decoration:none;
 }
-
+ 
 .footer-col a:hover{
   color:var(--gold);
 }
-
+ 
 /* MOBILE */
-
+ 
 @media(max-width:900px){
-
+ 
   nav{
     padding:1rem 1.5rem;
   }
-
+ 
   .nav-links{
     display:none;
   }
-
+ 
   .page-hero,
   .insights-main,
   .newsletter,
@@ -489,44 +488,100 @@ footer{
     padding-left:1.5rem;
     padding-right:1.5rem;
   }
-
+ 
   .insights-featured,
   .insights-grid,
   .footer-grid{
     grid-template-columns:1fr;
   }
-
+ 
   .newsletter-form{
     flex-direction:column;
   }
-
+ 
   .cta-actions{
     flex-direction:column;
   }
-
+ 
   .cta-band h2,
   .newsletter h2{
     font-size:2.4rem;
   }
   .insights-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
   gap: 30px;
 }
 }
 </style>
+<style>
+/* ── MOBILE HAMBURGER + SLIDE-OUT DRAWER (≤900px). Desktop nav is untouched. ── */
+.nav-toggle,.nav-overlay,.nav-drawer{display:none;}
+@media(max-width:900px){
+  nav{justify-content:flex-start;gap:.35rem;}           /* hamburger left, logo beside it */
+  .nav-toggle{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;
+    width:44px;height:44px;margin-left:-.6rem;padding:0;background:none;border:0;border-radius:2px;
+    cursor:pointer;flex-shrink:0;-webkit-tap-highlight-color:transparent;}
+  .nav-toggle span{display:block;width:24px;height:2px;border-radius:2px;background:var(--navy);transition:background .25s;}
+  .nav-toggle:hover span,.nav-toggle:focus-visible span{background:var(--gold);}
+  .nav-toggle:focus-visible,.nav-close:focus-visible{outline:1.5px solid var(--gold);outline-offset:2px;}
+ 
+  .nav-overlay{display:block;position:fixed;inset:0;z-index:1000;background:rgba(13,23,40,.62);
+    -webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);touch-action:none;
+    opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s;}
+  .nav-overlay.is-open{opacity:1;visibility:visible;transition:opacity .35s ease,visibility 0s;}
+ 
+  .nav-drawer{display:flex;flex-direction:column;position:fixed;top:0;left:0;bottom:0;z-index:1010;
+    height:100vh;height:100dvh;width:min(86vw,340px);background:var(--navy-deep);
+    border-right:1px solid rgba(201,150,42,.2);
+    padding:calc(.9rem + env(safe-area-inset-top,0px)) 1.5rem calc(1.75rem + env(safe-area-inset-bottom,0px));
+    overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+    transform:translateX(-102%);visibility:hidden;
+    transition:transform .4s cubic-bezier(.22,.8,.24,1),visibility 0s linear .4s;}
+  .nav-drawer.is-open{transform:translateX(0);visibility:visible;box-shadow:12px 0 48px rgba(0,0,0,.35);
+    transition:transform .4s cubic-bezier(.22,.8,.24,1),visibility 0s;}
+ 
+  .nav-close{position:relative;align-self:flex-end;flex-shrink:0;width:44px;height:44px;margin:0 -.6rem .75rem 0;
+    background:none;border:0;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+  .nav-close::before,.nav-close::after{content:'';position:absolute;top:50%;left:50%;width:22px;height:2px;
+    border-radius:2px;background:var(--white);transition:background .25s;}
+  .nav-close::before{transform:translate(-50%,-50%) rotate(45deg);}
+  .nav-close::after{transform:translate(-50%,-50%) rotate(-45deg);}
+  .nav-close:hover::before,.nav-close:hover::after{background:var(--gold);}
+ 
+  .nav-drawer-list{list-style:none;margin:0;padding:0;}
+  .nav-drawer-list li{opacity:0;transform:translateX(-14px);transition:opacity .35s ease,transform .35s ease;}
+  .nav-drawer.is-open .nav-drawer-list li{opacity:1;transform:none;transition-delay:calc(.12s + var(--i,0)*.05s);}
+  .nav-drawer-list a{display:block;padding:1.05rem 0;font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:400;
+    letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:rgba(255,255,255,.85);
+    border-bottom:1px solid rgba(201,150,42,.14);transition:color .25s,padding-left .25s;-webkit-tap-highlight-color:transparent;}
+  .nav-drawer-list a:hover,.nav-drawer-list a:focus-visible{color:var(--gold);padding-left:.4rem;outline:none;}
+  .nav-drawer-list a[aria-current="page"]{color:var(--gold);}
+  .nav-drawer-list a.btn-gold{display:flex;justify-content:center;margin-top:1.5rem;padding:.95rem 1rem;
+    color:var(--navy);border-bottom:0;font-weight:500;letter-spacing:.14em;}
+  .nav-drawer-list a.btn-gold:hover,.nav-drawer-list a.btn-gold:focus-visible{color:var(--navy);padding-left:1rem;}
+ 
+  html.nav-lock,html.nav-lock body{overflow:hidden;}      /* page can't scroll while open */
+}
+@media(max-width:900px) and (max-height:520px){.nav-drawer-list a{padding:.8rem 0;}}
+@media(prefers-reduced-motion:reduce){
+  .nav-drawer,.nav-overlay,.nav-drawer-list li{transition-duration:.01s!important;transition-delay:0s!important;}
+}
+</style>
+<style>.nav-drawer-list a.btn-gold{border-radius:2px;}</style>
 </head>
-
+ 
 <body>
-
+ 
 <nav id="main-nav">
-
+  <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer"><span></span><span></span><span></span></button>
+ 
   <a href="index.html" class="nav-logo">
     <img 
       src="https://raw.githubusercontent.com/Kairosgrowthconsulting/Growth-Lifecycle-Marketing-Consultancy/main/logo.png"
       alt="Kairos Growth Consulting">
   </a>
-
+ 
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="services.html">Services</a></li>
@@ -535,12 +590,25 @@ footer{
     <li><a href="insights.html">Insights</a></li>
     <li><a href="contact.html" class="nav-cta">Book a Call</a></li>
   </ul>
-
+ 
 </nav>
-
+ 
+<div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+<aside class="nav-drawer" id="nav-drawer" role="dialog" aria-modal="true" aria-label="Site menu" aria-hidden="true">
+  <button type="button" class="nav-close" id="nav-close" aria-label="Close menu"></button>
+  <ul class="nav-drawer-list">
+    <li style="--i:0"><a href="index.html">Home</a></li>
+    <li style="--i:1"><a href="services.html">Services</a></li>
+    <li style="--i:2"><a href="case-studies.html">Case Studies</a></li>
+    <li style="--i:3"><a href="about.html">About</a></li>
+    <li style="--i:4"><a href="insights.html" aria-current="page">Insights</a></li>
+    <li style="--i:5"><a href="contact.html" class="btn-gold">Book a Call</a></li>
+  </ul>
+</aside>
+ 
 <section class="page-hero">
   <div class="page-hero-grid"></div>
-
+ 
   <div class="page-hero-content">
     <div class="page-hero-eyebrow">
       Kairos Insights
@@ -549,13 +617,13 @@ footer{
       Growth thinking<br>
       from <em>practitioners</em>
     </h1>
-
+ 
     <p>
       No fluff. No recycled takes. Just specific, actionable thinking on lifecycle marketing, retention, and building brands that grow profitably.
     </p>
   </div>
 </section>
-
+ 
 <div class="ticker">
   <div class="ticker-inner">
     <span>Email Lifecycle</span>
@@ -571,132 +639,132 @@ footer{
     <span>Paid Acquisition</span>
   </div>
 </div>
-
+ 
 <div class="insights-main">
-
+ 
   <div class="insights-featured">
-
+ 
     <a href="#" class="insight-feat">
       <span class="insight-cat">Lifecycle Marketing</span>
-
+ 
       <h2>
         The 5 lifecycle emails your brand is almost certainly not sending
       </h2>
-
+ 
       <p>
         Most brand email programmes consist of a welcome email, a promotion blast, and maybe a cart recovery.
       </p>
-
+ 
       <span class="insight-meta">
         Kairos Editorial · 8 min read
       </span>
     </a>
-
+ 
     <a href="#" class="insight-feat dark">
       <span class="insight-cat">Retention</span>
-
+ 
       <h2>
         Why your churn rate is a messaging problem
       </h2>
-
+ 
       <p>
         High churn is often caused by users never reaching activation milestones.
       </p>
-
+ 
       <span class="insight-meta">
         Kairos Editorial · 6 min read
       </span>
     </a>
-
+ 
   </div>
   <div class="insights-grid">
-
+ 
   {% for post in site.posts %}
-
+ 
 <a href="{{ post.url | relative_url }}" class="insight-card">
-
+ 
   <span class="insight-cat">
     {{ post.category }}
   </span>
-
+ 
   <h3>{{ post.title }}</h3>
-
+ 
   <p>{{ post.excerpt }}</p>
-
+ 
   <span class="read-time">
     {{ post.readtime }}
   </span>
-
+ 
 </a>
-
+ 
 {% endfor %}
-
+ 
     <a href="#" class="insight-card">
       <span class="insight-cat">Growth Strategy</span>
       <h3>CAC is vanity. Payback period is sanity.</h3>
       <p>Metrics that actually matter for growth teams.</p>
       <span class="read-time">5 min read</span>
     </a>
-
+ 
     <a href="#" class="insight-card">
       <span class="insight-cat">Email Marketing</span>
       <h3>Klaviyo mistakes costing brands revenue</h3>
       <p>The most common email configuration errors we see.</p>
       <span class="read-time">7 min read</span>
     </a>
-
+ 
     <a href="#" class="insight-card">
       <span class="insight-cat">CRO</span>
       <h3>What actually drives email opens in 2025</h3>
       <p>The subject line data brands should care about.</p>
       <span class="read-time">6 min read</span>
     </a>
-
+ 
   </div>
-
+ 
 </div>
 </div>
-
+ 
 <section class="newsletter">
-
+ 
   <div class="newsletter-inner">
-
+ 
     <h2>
       Growth insights,<br>
       every <em>Tuesday</em>
     </h2>
-
+ 
     <p>
       One email per week. Specific, actionable thinking on lifecycle marketing and brand growth.
     </p>
-
+ 
     <div class="newsletter-form">
       <input type="email" placeholder="Your email address">
       <button>Subscribe</button>
     </div>
-
+ 
   </div>
-
+ 
 </section>
-
+ 
 <section class="cta-band">
-
+ 
   <h2>
     Ideas are free.<br>
     Results need a <em>system.</em>
   </h2>
-
+ 
   <p>
     Book a free audit and let's show you what's possible.
   </p>
-
+ 
   <div class="cta-actions">
     <a href="contact.html" class="btn-gold">Book a Strategy Call</a>
     <a href="contact.html#audit" class="btn-ghost-white">Free Growth Audit</a>
   </div>
-
+ 
 </section>
-
+ 
 <footer>
   <div class="footer-grid">
     <!-- Logo Column -->
@@ -744,8 +812,55 @@ footer{
   <div class="footer-bottom">
     <p>© 2025 Kairos Growth Consulting. All rights reserved.</p>
   </div>
-  <script src="mobile-nav.js"></script>
 </footer>
-
+ 
+<script>
+(function(){
+  var toggle=document.getElementById('nav-toggle'),
+      drawer=document.getElementById('nav-drawer'),
+      overlay=document.getElementById('nav-overlay'),
+      closeBtn=document.getElementById('nav-close'),
+      root=document.documentElement,
+      mq=window.matchMedia('(max-width:900px)'),
+      lastFocus=null;
+  if(!toggle||!drawer||!overlay||!closeBtn) return;
+ 
+  function isOpen(){return drawer.classList.contains('is-open');}
+  function open(){
+    if(isOpen()||!mq.matches) return;
+    lastFocus=document.activeElement;
+    drawer.classList.add('is-open'); overlay.classList.add('is-open');
+    root.classList.add('nav-lock');
+    drawer.setAttribute('aria-hidden','false'); toggle.setAttribute('aria-expanded','true');
+    setTimeout(function(){closeBtn.focus();},60);
+  }
+  function close(restoreFocus){
+    if(!isOpen()) return;
+    drawer.classList.remove('is-open'); overlay.classList.remove('is-open');
+    root.classList.remove('nav-lock');
+    drawer.setAttribute('aria-hidden','true'); toggle.setAttribute('aria-expanded','false');
+    if(restoreFocus!==false){(lastFocus&&lastFocus.focus?lastFocus:toggle).focus();}
+  }
+ 
+  toggle.addEventListener('click',open);
+  closeBtn.addEventListener('click',function(){close();});
+  overlay.addEventListener('click',function(){close();});           /* tap outside the drawer */
+  drawer.addEventListener('click',function(e){                       /* any link closes, then navigates */
+    var a=e.target.closest?e.target.closest('a'):null; if(a) close(false);
+  });
+  document.addEventListener('keydown',function(e){
+    if(!isOpen()) return;
+    if(e.key==='Escape'){close();return;}
+    if(e.key!=='Tab') return;
+    var f=drawer.querySelectorAll('a[href],button'),first=f[0],last=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+  });
+  function onBreakpoint(){if(!mq.matches) close(false);}              /* rotate / resize to desktop */
+  if(mq.addEventListener) mq.addEventListener('change',onBreakpoint); else if(mq.addListener) mq.addListener(onBreakpoint);
+  window.addEventListener('pageshow',function(){close(false);});      /* browser back button restores a closed menu */
+})();
+</script>
 </body>
 </html>
+ 
