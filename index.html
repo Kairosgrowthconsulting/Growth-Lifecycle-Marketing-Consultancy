@@ -100,10 +100,6 @@ footer{background:var(--navy-deep);border-top:1px solid rgba(201,150,42,0.12);pa
 .anim-4{animation:fadeUp 0.75s 0.36s ease both;}
 .anim-5{animation:fadeUp 0.75s 0.48s ease both;}
  
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.65s ease,transform 0.65s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
- 
 @media(max-width:900px){
   nav{padding:1rem 1.5rem;}
   .nav-links{display:none;}
@@ -276,6 +272,8 @@ footer{background:var(--navy-deep);border-top:1px solid rgba(201,150,42,0.12);pa
   .nav-drawer,.nav-overlay,.nav-drawer-list li{transition-duration:.01s!important;transition-delay:0s!important;}
 }
 </style>
+<link rel="stylesheet" href="kairos-motion.css?v=1">
+<script src="kairos-motion.js?v=1"></script>
 </head>
 <body>
  
@@ -529,14 +527,6 @@ footer{background:var(--navy-deep);border-top:1px solid rgba(201,150,42,0.12);pa
   </div>
 </footer>
 <script>
-window.addEventListener('scroll',()=>{
-  document.getElementById('main-nav').style.boxShadow=window.scrollY>40?'0 4px 30px rgba(0,0,0,0.07)':'none';
-});
-document.querySelectorAll('.reveal').forEach(el=>{
-  new IntersectionObserver(([e])=>{if(e.isIntersecting){e.target.classList.add('visible');}},{threshold:0.1}).observe(el);
-});
-</script>
-<script>
 (function(){
   var toggle=document.getElementById('nav-toggle'),
       drawer=document.getElementById('nav-drawer'),
@@ -585,5 +575,4 @@ document.querySelectorAll('.reveal').forEach(el=>{
 </script>
 </body>
 </html>
- 
  
