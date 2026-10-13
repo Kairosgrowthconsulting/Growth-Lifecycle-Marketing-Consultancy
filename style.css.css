@@ -1,0 +1,231 @@
+/* ═══════════════════════════════════════════════════════════════════
+   Kairos Growth Consulting — shared motion layer (paired with kairos-motion.js)
+
+   Safety rules this file follows:
+   • Anything that HIDES content is scoped to  html.js  — a class the script adds
+     only when JavaScript works and the visitor has not asked for reduced motion.
+     No JS, reduced motion, or a missing script = the page is simply fully visible.
+   • Only transform / opacity / clip-path are animated (GPU friendly).
+   • Colours, fonts and layout come from the existing page variables.
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  --m-ease: cubic-bezier(.22, .8, .24, 1);
+  --m-ease-out: cubic-bezier(.16, 1, .3, 1);
+}
+
+/* Anchor jumps (services.html#pr etc.) no longer hide behind the fixed header */
+html { scroll-padding-top: 5.5rem; }
+
+/* ── Smooth page-to-page cross-fade (Chrome/Edge/Safari 18+; ignored elsewhere) ── */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+  nav#main-nav { view-transition-name: kairos-nav; }
+  ::view-transition-old(root),
+  ::view-transition-new(root) { animation-duration: .32s; animation-timing-function: ease; }
+}
+
+/* ═════════════ 1. NAVIGATION: scroll-aware, progress line, active page ═════════════ */
+nav#main-nav {
+  transition: padding .35s var(--m-ease), box-shadow .35s ease, background-color .35s ease;
+}
+nav#main-nav.is-scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, .07); }
+.nav-logo img { transition: height .35s var(--m-ease); }
+@media (min-width: 901px) {
+  nav#main-nav.is-scrolled { padding-top: .8rem; padding-bottom: .8rem; }
+  nav#main-nav.is-scrolled .nav-logo img { height: 38px; }
+}
+.m-progress {
+  position: absolute; left: 0; right: 0; bottom: -1px; height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  transform-origin: 0 50%; transform: scaleX(var(--p, 0));
+  opacity: 0; transition: opacity .3s ease; pointer-events: none;
+}
+nav#main-nav.is-scrolled .m-progress { opacity: 1; }
+
+/* ═════════════ 2. HERO ENTRANCE ═════════════ */
+@keyframes mUp   { from { opacity: 0; transform: translate3d(0, 26px, 0); } to { opacity: 1; transform: none; } }
+@keyframes mLine { from { opacity: 0; transform: translate3d(0, .55em, 0); } to { opacity: 1; transform: none; } }
+@keyframes mFade { from { opacity: 0; transform: translate3d(0, 8px, 0); } to { opacity: 1; transform: none; } }
+@keyframes mSheen { from { background-position: 100% 0; } to { background-position: 0 0; } }
+
+/* Held back until the script is ready (it also has a 1.4s failsafe) */
+.js:not(.m-ready) :is(.hero, .page-hero, .contact-left) [class*="anim-"],
+.js:not(.m-ready) :is(.hero, .page-hero) h1,
+.js:not(.m-ready) .page-hero-content > * { opacity: 0; animation: none; }
+
+.js.m-ready :is(.hero, .page-hero, .contact-left) .anim-1 { animation: mUp .9s var(--m-ease-out) .05s both; }
+.js.m-ready :is(.hero, .page-hero, .contact-left) .anim-2 { animation: mUp .9s var(--m-ease-out) .15s both; }
+.js.m-ready :is(.hero, .page-hero, .contact-left) .anim-3 { animation: mUp .9s var(--m-ease-out) .30s both; }
+.js.m-ready :is(.hero, .page-hero, .contact-left) .anim-4 { animation: mUp .9s var(--m-ease-out) .45s both; }
+.js.m-ready :is(.hero, .page-hero, .contact-left) .anim-5 { animation: mUp .9s var(--m-ease-out) .60s both; }
+
+/* Headline is split into lines: each line rises in turn, then the rest follows */
+.m-line { display: block; }
+.js.m-ready .m-line { animation: mLine 1s var(--m-ease-out) both; animation-delay: calc(.12s + var(--i, 0) * .13s); }
+.js.m-ready :is(.hero, .page-hero).m-has-split .anim-3 { animation-delay: .65s; }
+.js.m-ready :is(.hero, .page-hero).m-has-split .anim-4 { animation-delay: .80s; }
+.js.m-ready :is(.hero, .page-hero).m-has-split .anim-5 { animation-delay: .95s; }
+
+/* One soft gold sheen across the italic word in the headline */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .js.m-ready :is(.hero, .page-hero) h1 em {
+    padding: 0 .06em; margin: 0 -.06em;
+    background: linear-gradient(105deg, var(--gold) 0%, var(--gold) 40%, #F8E3A8 50%, var(--gold) 60%, var(--gold) 100%) 100% 0 / 260% 100% no-repeat;
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: mSheen 2.4s ease-in-out 1s 1 both;
+  }
+}
+
+/* ═════════════ 3. LIVING BACKGROUNDS (hero, CTA bands) ═════════════ */
+@keyframes mDrift  { 0% { transform: translate3d(-6%, -4%, 0) scale(1); } 50% { transform: translate3d(8%, 6%, 0) scale(1.12); } 100% { transform: translate3d(-2%, 10%, 0) scale(1.04); } }
+@keyframes mBreath { 0%, 100% { scale: 1; } 50% { scale: 1.035; } }
+@keyframes mPulse  { 0%, 100% { opacity: .5; } 50% { opacity: 1; } }
+@keyframes mOrbit  { to { transform: rotate(360deg); } }
+
+:is(.hero, .page-hero, .cta-band, .contact-left) { isolation: isolate; }
+.m-glow {
+  position: absolute; z-index: -1; pointer-events: none;
+  width: min(62vw, 640px); aspect-ratio: 1; border-radius: 50%;
+  top: -12%; right: -6%;
+  background: radial-gradient(circle at 50% 50%, rgba(201, 150, 42, .17), rgba(201, 150, 42, .06) 38%, transparent 68%);
+  animation: mDrift 22s ease-in-out infinite alternate;
+  translate: calc(var(--mx, 0) * 22px) calc(var(--my, 0) * 16px);
+  transition: translate .9s var(--m-ease-out);
+}
+.m-glow.is-b { top: auto; bottom: -28%; left: -10%; right: auto; opacity: .7; animation-duration: 29s; animation-direction: alternate-reverse; }
+.cta-band .m-glow { top: -30%; left: 50%; right: auto; margin-left: calc(min(62vw, 640px) / -2); }
+
+.hero-ring {
+  animation: mBreath 14s ease-in-out infinite;
+  translate: calc(var(--mx, 0) * -12px) calc(var(--my, 0) * -9px + var(--py, 0px));
+  transition: translate .9s var(--m-ease-out);
+}
+.hero-ring::before { animation: mPulse 7s ease-in-out infinite; }
+.hero-ring::after  { animation: mPulse 9s ease-in-out 1.5s infinite; }
+.m-orbit { position: absolute; inset: 0; border-radius: 50%; pointer-events: none; animation: mOrbit 46s linear infinite; }
+.m-orbit::before {
+  content: ''; position: absolute; top: -4px; left: 50%; width: 8px; height: 8px; margin-left: -4px;
+  border-radius: 50%; background: var(--gold); box-shadow: 0 0 14px 3px rgba(201, 150, 42, .55);
+}
+/* Decorative loops pause when scrolled out of view */
+.m-off .m-glow, .m-off .m-orbit, .m-off .hero-ring, .m-off .hero-ring::before, .m-off .hero-ring::after { animation-play-state: paused; }
+
+/* ═════════════ 4. SCROLL REVEALS (staggered) ═════════════ */
+.js .reveal {
+  opacity: 0; transform: translate3d(0, 28px, 0);
+  transition: opacity .85s var(--m-ease) var(--rd, 0s), transform .85s var(--m-ease) var(--rd, 0s), clip-path 1s var(--m-ease) var(--rd, 0s);
+}
+.js .reveal[data-r="left"]  { transform: translate3d(-28px, 0, 0); }
+.js .reveal[data-r="scale"] { transform: translate3d(0, 18px, 0) scale(.97); }
+.js .reveal[data-r="fade"]  { transform: none; }
+.js .reveal[data-r="wipe"]  { transform: none; clip-path: inset(0 0 calc(100% - 1px) 0); }
+.js .reveal[data-r="line"]  { opacity: 1; transform: scaleX(.001); transform-origin: left center; }
+.js .reveal.m-in { opacity: 1; transform: none; clip-path: inset(0 0 0 0); }
+
+/* Section-label rule draws itself in */
+.js .section-tag.reveal::before { transform: scaleX(0); transform-origin: left center; transition: transform .9s var(--m-ease) calc(var(--rd, 0s) + .25s); }
+.js .section-tag.reveal.m-in::before { transform: scaleX(1); }
+
+/* Big faint service numerals light up while their section is centred */
+.svc-num { transition: color .7s ease; }
+.svc-section.is-active .svc-num { color: rgba(201, 150, 42, .42); }
+
+/* ═════════════ 5. INTERACTIVE CARDS ═════════════ */
+.svc-card, .case-card, .phil-card, .wwd-card, .testi-card, .svc-item, .insight-card, .insight-feat, .client-logo-pill {
+  transition: transform .45s var(--m-ease), box-shadow .45s var(--m-ease), border-color .3s ease, background-color .3s ease, color .3s ease;
+}
+.svc-icon { transition: background-color .35s ease, transform .5s var(--m-ease); }
+.svc-icon svg { transition: stroke .35s ease; }
+.phil-num, .wwd-num { transition: color .4s ease; }
+.case-card h3, .case-card p, .case-metric span { transition: color .3s ease; }
+
+@media (hover: hover) {
+  .svc-card:hover   { transform: translateY(-6px); box-shadow: 0 22px 44px -22px rgba(26, 39, 68, .30); position: relative; z-index: 2; }
+  .svc-card:hover .svc-icon { background: var(--gold); transform: scale(1.1) rotate(-6deg); }
+  .svc-card:hover .svc-icon svg { stroke: var(--navy); }
+  .case-card:hover  { transform: translateY(-4px); box-shadow: 0 26px 50px -26px rgba(13, 23, 40, .5); position: relative; z-index: 2; }
+  .phil-card:hover  { transform: translateY(-4px); }
+  .phil-card:hover .phil-num { color: rgba(201, 150, 42, .5); }
+  .wwd-card:hover   { transform: translateY(-4px); box-shadow: 0 18px 38px -22px rgba(26, 39, 68, .28); }
+  .wwd-card:hover .wwd-num { color: var(--gold); }
+  .testi-card:hover { transform: translateY(-4px); }
+  .svc-item:hover   { transform: translateY(-3px); box-shadow: 0 14px 28px -18px rgba(26, 39, 68, .25); }
+  .insight-card:hover, .insight-feat:hover { transform: translateY(-4px); box-shadow: 0 22px 44px -24px rgba(13, 23, 40, .35); position: relative; z-index: 2; }
+  .client-logo-pill:hover { transform: translateY(-2px); border-color: rgba(201, 150, 42, .6); color: var(--navy); }
+}
+/* Soft gold light that follows the cursor inside a card (set by the script) */
+@media (hover: hover) and (pointer: fine) {
+  [data-spot]:hover { background-image: radial-gradient(280px circle at var(--sx, 50%) var(--sy, 50%), rgba(201, 150, 42, .13), transparent 70%); }
+}
+
+/* Case-study index rows */
+.case-row { position: relative; transition: border-color .3s ease, background-color .3s ease; }
+.case-row::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--gold);
+  transform: scaleY(0); transform-origin: center top; transition: transform .5s var(--m-ease); pointer-events: none;
+}
+.case-row .case-kpi strong { display: block; transition: transform .45s var(--m-ease); }
+.case-row-meta h3 { transition: color .3s ease; }
+@media (hover: hover) {
+  .case-row:hover::before { transform: scaleY(1); }
+  .case-row:hover .case-kpi strong { transform: translateX(6px); }
+  .case-row:hover .case-row-meta h3 { color: var(--gold); }
+}
+
+/* Contact details */
+.contact-detail-icon { transition: background-color .3s ease, transform .45s var(--m-ease); }
+@media (hover: hover) { .contact-detail:hover .contact-detail-icon { background: rgba(201, 150, 42, .26); transform: scale(1.08); } }
+
+/* ═════════════ 6. BUTTONS & LINKS ═════════════ */
+.btn-gold, .btn-navy, .nav-cta, .submit-btn { position: relative; overflow: hidden; isolation: isolate; }
+.btn-gold::before, .btn-navy::before, .nav-cta::before, .submit-btn::before {
+  content: ''; position: absolute; top: 0; bottom: 0; left: -90%; width: 55%; z-index: -1;
+  transform: skewX(-20deg); pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .32), transparent);
+  transition: left .75s var(--m-ease);
+}
+@media (hover: hover) {
+  .btn-gold:hover::before, .btn-navy:hover::before, .nav-cta:hover::before, .submit-btn:hover::before { left: 135%; }
+}
+.btn-gold:active, .btn-navy:active, .btn-outline:active, .nav-cta:active, .submit-btn:active { transform: translateY(0) scale(.97); transition-duration: .1s; }
+
+.m-arrow { display: inline-block; transition: transform .35s var(--m-ease); }
+a:hover .m-arrow, a:focus-visible .m-arrow { transform: translateX(5px); }
+
+a:focus-visible, button:focus-visible, .filter-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.filter-btn { transition: background-color .25s ease, color .25s ease, border-color .25s ease, transform .2s ease; }
+.filter-btn:active { transform: scale(.95); }
+
+.ticker:hover .ticker-inner { animation-play-state: paused; }
+
+/* Footer links glide */
+footer .footer-col ul li a { display: inline-block; transition: color .25s ease, transform .3s var(--m-ease); }
+@media (hover: hover) { footer .footer-col ul li a:hover { transform: translateX(4px); } }
+
+/* ═════════════ 7. FORMS ═════════════ */
+.form-group label { transition: color .25s ease; }
+.form-group:focus-within label { color: var(--gold); }
+.form-group input, .form-group textarea, .form-group select { transition: border-color .25s ease, box-shadow .25s ease; }
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus { box-shadow: 0 0 0 3px rgba(201, 150, 42, .14); }
+.newsletter-form { transition: border-color .25s ease, box-shadow .25s ease; }
+.newsletter-form:focus-within { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201, 150, 42, .12); }
+.form-panel.active { animation: mFade .5s var(--m-ease-out) both; }
+.success-msg { animation: mFade .6s var(--m-ease-out) both; }
+
+/* ═════════════ 8. COUNT-UP STATS ═════════════ */
+.m-count { display: inline-block; text-align: inherit; }
+.m-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* ═════════════ 9. ACCESSIBILITY & PRINT ═════════════ */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .anim-1, .anim-2, .anim-3, .anim-4, .anim-5, .form-panel.active, .success-msg { animation: none !important; }
+  .ticker-inner, .hero-ring, .hero-ring::before, .hero-ring::after, .m-glow, .m-orbit { animation: none !important; }
+  nav#main-nav, .nav-logo img, .m-arrow, .svc-card, .case-card, .phil-card, .wwd-card, .testi-card, .svc-item, .insight-card, .insight-feat { transition: none !important; }
+}
+@media print {
+  .js .reveal { opacity: 1 !important; transform: none !important; clip-path: none !important; }
+  .m-glow, .m-orbit, .m-progress { display: none !important; }
+}
