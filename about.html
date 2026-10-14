@@ -63,8 +63,6 @@ footer{background:var(--navy-deep);border-top:1px solid rgba(201,150,42,0.12);pa
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
 .anim-1{animation:fadeUp 0.75s ease both;}.anim-2{animation:fadeUp 0.75s 0.12s ease both;}
 .anim-3{animation:fadeUp 0.75s 0.24s ease both;}.anim-4{animation:fadeUp 0.75s 0.36s ease both;}
-.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.65s ease,transform 0.65s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
 @media(max-width:900px){nav{padding:1rem 1.5rem;}.nav-links{display:none;}.page-hero{padding:8rem 1.5rem 4rem;}footer{padding:4rem 1.5rem 2rem;}.footer-grid{grid-template-columns:1fr 1fr;}.cta-band{padding:5rem 1.5rem;}.cta-actions{flex-direction:column;}}
 </style>
 <style>
@@ -270,6 +268,8 @@ footer{background:var(--navy-deep);border-top:1px solid rgba(201,150,42,0.12);pa
   .nav-drawer,.nav-overlay,.nav-drawer-list li{transition-duration:.01s!important;transition-delay:0s!important;}
 }
 </style>
+<link rel="stylesheet" href="kairos-motion.css?v=1">
+<script src="kairos-motion.js?v=1"></script>
 </head>
 <body>
 <nav id="main-nav">
@@ -601,7 +601,6 @@ footer{background:var(--navy-deep);border-top:1px solid rgba(201,150,42,0.12);pa
     <div class="footer-badge">Global Standard ◆</div>
   </div>
 </footer>
-<script>window.addEventListener('scroll',()=>{document.getElementById('main-nav').style.boxShadow=window.scrollY>40?'0 4px 30px rgba(0,0,0,0.07)':'none';});document.querySelectorAll('.reveal').forEach(el=>{new IntersectionObserver(([e])=>{if(e.isIntersecting)e.target.classList.add('visible');},{threshold:0.1}).observe(el);});</script>
 <script>
 (function(){
   var toggle=document.getElementById('nav-toggle'),
